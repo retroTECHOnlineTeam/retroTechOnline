@@ -3,6 +3,16 @@ module.exports = function(grunt) {
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+
+    bootlint: {
+    options: {
+      relaxerror: [],
+      showallerrors: false,
+      stoponerror: false,
+      stoponwarning: false
+    },
+    files: ['index.html']
+  },
  
     compass: {      
     dist: {        
@@ -51,7 +61,6 @@ module.exports = function(grunt) {
         }
     },
  
- 
     uglify:{
         options: {
             manage: false,
@@ -63,7 +72,6 @@ module.exports = function(grunt) {
             }
         }
     },
-   
  
     cssmin:{
         my_target:{
@@ -79,6 +87,9 @@ module.exports = function(grunt) {
     }
  
   });
+
+  // Load the Bootlint plugin that checks for Bootstrap style errors
+  grunt.loadNpmTasks('grunt-bootlint');
  
   // Load the plugin that provides the "compass" task.
   grunt.loadNpmTasks('grunt-contrib-compass');
@@ -99,5 +110,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
  
    // Default task(s).
-  grunt.registerTask('default', ['uglify','cssmin']);
+  grunt.registerTask('default', ['bootlint','uglify','cssmin']);
 };

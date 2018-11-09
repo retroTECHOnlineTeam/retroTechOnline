@@ -1,0 +1,11 @@
+body {
+  min-height: 2000px;
+}
+
+.navbar{
+	margin-bottom: 0px;
+}
+
+.oi {
+  font-size: 200%;
+}
