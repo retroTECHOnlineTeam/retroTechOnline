@@ -34,7 +34,7 @@ End with an example of getting some data out of the system or using it for a lit
 
 ## Running the tests
 
-Explain how to run the automated tests for this system
+Use Grunt
 
 ### Break down into end to end tests
 
@@ -58,9 +58,10 @@ Add additional notes about how to deploy this on a live system
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* [Bootstrap](https://getbootstrap.com/) - The web framework and themes used
+* [npm](https://www.npmjs.com/) - Package and Dependency Management
+* [OpenIconic](https://github.com/iconic/open-iconic) - Source for icons
+* [Grunt](https://gruntjs.com/) - Automated testing and compiling
 
 ## Contributing
 

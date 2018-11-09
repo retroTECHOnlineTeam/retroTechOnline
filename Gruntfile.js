@@ -4,15 +4,15 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
-    bootlint: {
-    options: {
-      relaxerror: [],
-      showallerrors: false,
-      stoponerror: false,
-      stoponwarning: false
-    },
-    files: ['index.html']
-  },
+  //   bootlint: {
+  //   options: {
+  //     relaxerror: [],
+  //     showallerrors: false,
+  //     stoponerror: false,
+  //     stoponwarning: false
+  //   },
+  //   files: ['index.html']
+  // },
  
     compass: {      
     dist: {        
@@ -110,5 +110,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
  
    // Default task(s).
-  grunt.registerTask('default', ['bootlint','uglify','cssmin']);
+  grunt.registerTask('default', ['uglify','cssmin']);
 };
