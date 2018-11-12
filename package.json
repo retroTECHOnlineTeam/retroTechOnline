@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.5.0",
     "grunt": "^1.0.3",
     "grunt-bootlint": "^0.11.1",
     "grunt-contrib-compass": "^1.1.1",
