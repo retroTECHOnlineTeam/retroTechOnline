@@ -1,7 +1,22 @@
 body {
   min-height: 2000px;
 }
-
 .navbar{
 	margin-bottom: 0px;
+}
+.retro {
+	font-family: 'Orbitron', sans-serif;
+}
+.tech {
+	font-family: 'Roboto', sans-serif;
+	font-weight:900;
+}
+.GTwhite {
+	color:fff;
+	font-weight:900;
+	font-style:italic;
+}
+.GTgold {
+	color:#eeb211;
+	font-weight:900;
 }
