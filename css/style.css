@@ -1,5 +1,5 @@
 body {
-  min-height: 2000px;
+  min-height: 500px;
 }
 .navbar{
 	margin-bottom: 0px;
@@ -22,4 +22,13 @@ body {
 }
 .roboto {
 	font-family: 'Roboto', sans-serif;
+}
+.transp-banner {
+	width:100%; 
+	height: 300px; 
+	margin-left:auto; 
+	margin-right:auto;
+	margin-top:auto; 
+	margin-bottom:auto;
+	background-color: rgba(0, 0, 0, 0.6);
 }
