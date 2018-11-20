@@ -35,3 +35,7 @@ body {
 .dropdown:hover>.dropdown-menu {
   display: block;
 }
+.card-container {
+	width:100%;
+	padding: 0px;
+}
