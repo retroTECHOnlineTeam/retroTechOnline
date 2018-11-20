@@ -1,4 +1,4 @@
-# RetroTECH Online
+# retroTECH Online
 
 One Paragraph of project description goes here
 
@@ -9,6 +9,8 @@ These instructions will get you a copy of the project up and running on your loc
 ### Prerequisites
 
 What things you need to install the software and how to install them
+
+* [npm](https://www.npmjs.com/) - Package and Dependency Manager
 
 ```
 Give examples
@@ -60,7 +62,7 @@ Add additional notes about how to deploy this on a live system
 
 * [Bootstrap](https://getbootstrap.com/) - The web framework and themes used
 * [npm](https://www.npmjs.com/) - Package and Dependency Management
-* [OpenIconic](https://github.com/iconic/open-iconic) - Source for icons
+* [FontAwesome](https://fontawesome.com/) - Source for icons
 * [Grunt](https://gruntjs.com/) - Automated testing and compiling
 
 ## Contributing
@@ -73,9 +75,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+* **Maura Gerke** - web developer - [PurpleBooth](https://github.com/mmgerke)
 
 ## License
 
