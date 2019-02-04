@@ -9,9 +9,12 @@ $repository_id = '1';
 $username= 'admin';
 $password = 'admin';
 
-$auth = $aspace_url.'/users/'.$username.'/login?password='.$password;
+$auth = curl_exec($aspace_url.'/users/'.$username.'/login?password='.$password);
 $session = $auth['session'];
 
+if (empty($session)) {
+	throw new Exception('Authentication Failed! ');
+}
 
 # get the ids for digital objects in the repository
 $curl = curl_init();
@@ -37,10 +40,11 @@ curl_close($curl);
   $ret = curl_exec($curl);
   $results = json_decode($ret,true);
 
-  ob_flush();//Flush the data here
   foreach ($results as $object) {
   	  echo $object . "<br>";
   }
   curl_close($curl);
  }
  ob_end_flush();
+
+ ?>
