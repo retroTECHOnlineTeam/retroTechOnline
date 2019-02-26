@@ -1,11 +1,9 @@
 <?php
+require_once 'api_creds.php';
 require './vendor/autoload.php';
 use GuzzleHttp\Client;
 
 class ArchiveSpaceApi {
-
-  CONST username = 'gtlib_api_user';
-  CONST password = 'quie8eeN_ooPh';
   var $client;
 
   # create Guzzle client for HTTP requests
@@ -13,7 +11,7 @@ class ArchiveSpaceApi {
     $this->client = new Client([
       // Base URI is used with relative requests
       'base_uri' => 'https://as-stage-backend.library.gatech.edu',
-      'auth' => [$username, $password],
+      'auth' => [username, password],
       'connect_timeout' => 2.0,
     ]);
     echo "Guzzle client created.\n";
@@ -22,19 +20,19 @@ class ArchiveSpaceApi {
   public function authenticate() {
     try {
       $request = $this->client->post('/users/'.$username.'/login?password='.$password, array(), array(
-        'username' => $username,
-        'password' => $password)); // sanitize this
+        'username' => username,
+        'password' => password)); // sanitize this
       $response = $request->send();
     } catch (GuzzleHttp\Exception\ConnectException $e) {
       echo "The server is unreachable at the time. Please contact support.\n";
     } catch (GuzzleHttp\Exception\ServerException $e) {
-        // $body = $e->getResponse()->getBody(true);
-        //echo "Exception thrown: ".$body."\n";
-        echo 'Uh oh! ' . $e->getMessage();
+        echo "The server is unreachable at the time. Please contact support.\n";
+        echo 'Exception: ' . $e->getMessage();
         //echo 'HTTP request URL: ' . $e->getRequest()->getUrl() . "\n";
         //echo 'HTTP request: ' . $e->getRequest() . "\n";
         echo 'HTTP response status: ' . $e->getResponse()->getStatusCode() . "\n";
-        echo 'HTTP response: ' . $e->getResponse()->getBody(true) . "\n";
+        //echo 'HTTP response: ' . $e->getResponse()->getBody(true) . "\n";
+        die();
     }
     if ($res->getStatusCode() == 200) {
       echo "Authenticated! :)\n";
@@ -64,7 +62,6 @@ class ArchiveSpaceApi {
 
   echo "here we go!\n";
   $c = new ArchiveSpaceApi();
-  $c->
   $c->authenticate();
   echo "DONE!\n";
 ?>
