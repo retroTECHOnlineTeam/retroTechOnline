@@ -11,12 +11,9 @@ class ArchiveSpaceApi {
     $this->client = new Client([
       // Base URI is used with relative requests
       'base_uri' => 'https://as-stage-backend.library.gatech.edu',
-      'auth' => [$username, $password],
       'connect_timeout' => 2.0,
-      'username' => $username,
-        'password' => $password,
-        'on_stats' => function (GuzzleHttp\TransferStats $stats) use (&$url) {
-          $url = $stats->getEffectiveUri(); }
+      'on_stats' => function (GuzzleHttp\TransferStats $stats) use (&$url) {
+        $url = $stats->getEffectiveUri(); }
     ]);
     echo "Guzzle client created.\n";
   }
@@ -25,32 +22,28 @@ class ArchiveSpaceApi {
     include './api_creds.php';
 
     try {
-      $request = new Request('POST', '/users/'.$username.'/login?password='.$password, array(
-        'username' => $username,
-        'password' => $password,
-        'on_stats' => function (TransferStats $stats) use (&$url) {
-          $url = $stats->getEffectiveUri();
-        })); // sanitize this!
+      $authuri = 'https://as-stage-backend.library.gatech.edu/users/'
+                  .$username.'/login?password='.$password;
+      echo $authuri; // for testing
 
-      $response = $this->client->request($request);
+      $response = $this->client->request('POST', $authuri, [
+        'on_stats' => function (GuzzleHttp\TransferStats $stats) use (&$url) {
+          $url = $stats->getEffectiveUri();
+        }]); // sanitize this!
 
       echo $url;
-      die();
-    } catch (GuzzleHttp\Exception\ConnectException $e) {
-        echo "The server is unreachable at the time. Please contact support.\n";
     } catch (GuzzleHttp\Exception\ServerException $e) {
-        echo "The server is unreachable at the time. Please contact support.\n";
-        echo 'Exception: ' . $e->getMessage();
-        //echo 'HTTP request URL: ' . $e->getRequest()->getUrl() . "\n";
-        //echo 'HTTP request: ' . $e->getRequest() . "\n";
-        echo 'HTTP response status: ' . $e->getResponse()->getStatusCode() . "\n";
-        //echo 'HTTP response: ' . $e->getResponse()->getBody(true) . "\n";
-        die(); // maybe don't do this
+      echo "The server is unavailable.\n";
     } catch (GuzzleHttp\Exception\ClientException $e) {
       echo "You messed up your request.\n";
+      //echo 'HTTP request URL: ' . $e->getRequest()->getUrl() . "\n";
+      //echo 'HTTP request: ' . $e->getRequest() . "\n";
       echo 'HTTP response status: ' . $e->getResponse()->getStatusCode() . "\n";
+      //echo 'HTTP response: ' . $e->getResponse()->getBody(true) . "\n";
       echo 'Exception: ' . $e->getMessage();
-      die();
+            echo $url;
+
+      die(); // maybe don't do this?
     }
     if ($res->getStatusCode() == 200) {
       echo "Authenticated! :)\n";
