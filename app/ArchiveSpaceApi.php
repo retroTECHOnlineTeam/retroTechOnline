@@ -11,7 +11,7 @@ class ArchiveSpaceApi {
   public function __construct() {
     $this->client = new Client([
       // Base URI is used with relative requests
-      'base_uri' => 'https://as-stage-backend.library.gatech.edu',
+      'base_uri' => BASE_URI,
       'connect_timeout' => 2.0,
       'on_stats' => function (GuzzleHttp\TransferStats $stats) use (&$url) {
         $url = $stats->getEffectiveUri(); }
@@ -23,9 +23,7 @@ class ArchiveSpaceApi {
     include './api_creds.php';
 
     try {
-      $authuri = 'https://as-stage-backend.library.gatech.edu/users/'
-                  .$username.'/login?password='.$password;
-      echo $authuri; // for testing
+      $authuri = BASE_URI . '/users/' . USERNAME . '/login?password=' . PASSWORD;
 
       $response = $this->client->request('POST', $authuri, [
         'on_stats' => function (GuzzleHttp\TransferStats $stats) use (&$url) {
@@ -46,10 +44,9 @@ class ArchiveSpaceApi {
     }
     if ($response->getStatusCode() == 200) {
       echo "Successfully authenticated!\n";
-      // save session info here
       $data = json_decode($response->getBody(), true);
       $this->session = $data['session']; // make a test for this
-      echo "Session saved.";
+      echo "Session saved.\n";
     } else {
       throw new Error("Something went wrong with your request. Unable to authenticate.\n");
     }
