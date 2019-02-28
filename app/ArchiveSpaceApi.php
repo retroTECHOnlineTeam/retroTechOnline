@@ -32,7 +32,7 @@ class ArchiveSpaceApi {
           $url = $stats->getEffectiveUri();
         }]); // sanitize this!
 
-      echo "Sending request to " . $url;
+      echo "Sending request to " . $url . "\n";
     } catch (GuzzleHttp\Exception\ServerException $e) {
       echo "The server is unavailable.\n";
     } catch (GuzzleHttp\Exception\ClientException $e) {
