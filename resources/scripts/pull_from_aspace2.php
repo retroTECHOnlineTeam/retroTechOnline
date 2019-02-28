@@ -5,6 +5,7 @@ use GuzzleHttp\Psr7\Request;
 
 class ArchiveSpaceApi {
   var $client;
+  var $session;
 
   # create Guzzle client for HTTP requests
   public function __construct() {
@@ -31,27 +32,27 @@ class ArchiveSpaceApi {
           $url = $stats->getEffectiveUri();
         }]); // sanitize this!
 
-      echo $url;
+      echo "Sending request to " . $url;
     } catch (GuzzleHttp\Exception\ServerException $e) {
       echo "The server is unavailable.\n";
     } catch (GuzzleHttp\Exception\ClientException $e) {
-      echo "You messed up your request.\n";
-      //echo 'HTTP request URL: ' . $e->getRequest()->getUrl() . "\n";
+      echo "There was a problem with your request.\n";
+      echo 'HTTP request URL: ' . $url . "\n";
       //echo 'HTTP request: ' . $e->getRequest() . "\n";
       echo 'HTTP response status: ' . $e->getResponse()->getStatusCode() . "\n";
       //echo 'HTTP response: ' . $e->getResponse()->getBody(true) . "\n";
-      echo 'Exception: ' . $e->getMessage();
-            echo $url;
-
+      echo 'Exception: ' . $e->getMessage() . "\n";
       die(); // maybe don't do this?
     }
-    if ($res->getStatusCode() == 200) {
-      echo "Authenticated! :)\n";
+    if ($response->getStatusCode() == 200) {
+      echo "Successfully authenticated!\n";
+      // save session info here
+      $data = json_decode($response->getBody(), true);
+      $this->session = $data['session']; // make a test for this
+      echo "Session saved.";
+    } else {
+      throw new Error("Something went wrong with your request. Unable to authenticate.\n");
     }
-    // 200
-    //echo $res->getHeader('content-type');
-    // 'application/json; charset=utf8'
-    //echo $res->getBody();
   }
 
   public function getDigitalObjects() {
