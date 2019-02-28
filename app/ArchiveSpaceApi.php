@@ -5,13 +5,14 @@ use GuzzleHttp\Psr7\Request;
 
 class ArchiveSpaceApi {
   var $client;
-  var $session;
+  var $SESSION;
 
   # create Guzzle client for HTTP requests
   public function __construct() {
     $this->client = new Client([
       // Base URI is used with relative requests
       'base_uri' => BASE_URI,
+      'auth' => [USERNAME, PASSWORD],
       'connect_timeout' => 2.0,
       'on_stats' => function (GuzzleHttp\TransferStats $stats) use (&$url) {
         $url = $stats->getEffectiveUri(); }
@@ -20,7 +21,7 @@ class ArchiveSpaceApi {
   }
 
   public function authenticate() {
-    include './api_creds.php';
+    include './api_creds_production.php';
 
     try {
       $authuri = BASE_URI . '/users/' . USERNAME . '/login?password=' . PASSWORD;
@@ -45,32 +46,37 @@ class ArchiveSpaceApi {
     if ($response->getStatusCode() == 200) {
       echo "Successfully authenticated!\n";
       $data = json_decode($response->getBody(), true);
-      $this->session = $data['session']; // make a test for this
+      $this->SESSION = $data['session']; // make a test for this
       echo "Session saved.\n";
     } else {
       throw new Error("Something went wrong with your request. Unable to authenticate.\n");
     }
   }
 
-  public function getDigitalObjects() {
-    $res = $client->request('POST', '/repositories/2/digial_objects?all_ids=true', [
-        'form_params' => [
-            'client_id' => 'test_id',
-            'secret' => 'test_secret',
-        ]
-    ]);
-    echo $res->getStatusCode();
-    // 200
-    echo $res->getHeader('content-type');
-    // 'application/json; charset=utf8'
-    echo $res->getBody();
-    // {"type":"User"...'
+  public function getResource(int $repo_id, int $record_id) {
+    var_dump($this->SESSION);
+    $url = BASE_URI . '/repositories/' . $repo_id . '/resources/' . $record_id;
+
+    $response = $this->client->request('GET', $url, [
+      'headers' => ['X-ArchivesSpace-Session: ' => $this->SESSION],
+      'on_stats' => function (GuzzleHttp\TransferStats $stats) use (&$url) {
+        $url = $stats->getEffectiveUri();
+      }]); // sanitize this!
+
+    if ($response->getStatusCode() == 200) {
+      echo "Successfully retrieved record!\n";
+      $data = json_decode($response->getBody(), true);
+      var_dump($data);
+    } else {
+      throw new Error("Something went wrong with your request. Unable to get record.\n");
+    }
   }
 
 }
 
-  echo "here we go!\n";
+  echo "TESTING START!\n";
   $c = new ArchiveSpaceApi();
   $c->authenticate();
-  echo "DONE!\n";
+  $c->getResource(1, 1752);
+  echo "TEST DONE!\n";
 ?>
