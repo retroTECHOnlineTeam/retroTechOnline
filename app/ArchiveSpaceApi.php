@@ -5,14 +5,13 @@ use GuzzleHttp\Psr7\Request;
 
 class ArchiveSpaceApi {
   var $client;
-  var $SESSION;
+  var $session_id;
 
   # create Guzzle client for HTTP requests
   public function __construct() {
     $this->client = new Client([
       // Base URI is used with relative requests
       'base_uri' => BASE_URI,
-      'auth' => [USERNAME, PASSWORD],
       'connect_timeout' => 2.0,
       'on_stats' => function (GuzzleHttp\TransferStats $stats) use (&$url) {
         $url = $stats->getEffectiveUri(); }
@@ -46,22 +45,32 @@ class ArchiveSpaceApi {
     if ($response->getStatusCode() == 200) {
       echo "Successfully authenticated!\n";
       $data = json_decode($response->getBody(), true);
-      $this->SESSION = $data['session']; // make a test for this
-      echo "Session saved.\n";
+      $this->session_id = $data['session']; // make a test for this      
+      echo "Session id " . $this->session_id . " saved.\n";
+      //var_dump($data);
     } else {
       throw new Error("Something went wrong with your request. Unable to authenticate.\n");
     }
   }
 
   public function getResource(int $repo_id, int $record_id) {
-    var_dump($this->SESSION);
-    $url = BASE_URI . '/repositories/' . $repo_id . '/resources/' . $record_id;
+    //$url = BASE_URI . '/repositories/' . $repo_id . '/resources/' . $record_id;
+    $url = BASE_URI . '/repositories/' . $repo_id . '/resources?all_ids=true';
 
-    $response = $this->client->request('GET', $url, [
-      'headers' => ['X-ArchivesSpace-Session: ' => $this->SESSION],
-      'on_stats' => function (GuzzleHttp\TransferStats $stats) use (&$url) {
-        $url = $stats->getEffectiveUri();
-      }]); // sanitize this!
+    try {
+      $response = $this->client->request('GET', $url, [
+        'headers' => ['X-ArchivesSpace-Session' => $this->session_id],
+        'on_stats' => function (GuzzleHttp\TransferStats $stats) use (&$url) {
+          $url = $stats->getEffectiveUri();
+        }]); // sanitize this!
+    } catch (GuzzleHttp\Exception\ClientException $e) {
+      var_dump($response);
+      echo "There was a problem with your request.\n";
+      echo 'HTTP request URL: ' . $url . "\n";
+      echo 'HTTP response status: ' . $e->getResponse()->getStatusCode() . "\n";
+      echo 'Exception: ' . $e->getMessage() . "\n";
+      die(); // maybe don't do this?
+    }
 
     if ($response->getStatusCode() == 200) {
       echo "Successfully retrieved record!\n";
@@ -77,6 +86,6 @@ class ArchiveSpaceApi {
   echo "TESTING START!\n";
   $c = new ArchiveSpaceApi();
   $c->authenticate();
-  $c->getResource(1, 1752);
+  $c->getResource(2, 1752);
   echo "TEST DONE!\n";
 ?>
