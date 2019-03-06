@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
+<link href="{{ asset('css/all.css') }}" rel="stylesheet">
+<script type="text/javascript" src="{{ asset('js/all.js') }}"></script>
 <head>
 	<title>@yield('title')</title>
 </head>
 <body>
-	<!-- @yield('header') -->
+	@include('header')
 
 	<h2>Item Name: @yield('entry_name')</h2>
 	<h3>Creation Date: @yield('entry_date')</h3>

@@ -1,0 +1,30 @@
+.site-logo {
+  background-color: #B3A369;
+  height: 100px;
+  margin-left: -15px;
+  width: 209px; }
+  .gold-footer__logo .site-logo {
+    width: auto; }
+  .site-logo .site-logo__arrow {
+    position: absolute;
+    right: -53px;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-top: 100px solid transparent;
+    border-left: 53px solid #B3A369; }
+    .gold-footer__logo .site-logo .site-logo__arrow {
+      display: none; }
+  .site-logo svg {
+    height: 100px;
+    width: 165px; }
+  .site-logo a {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 100px;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    padding-left: 0.938rem;
+    position: relative; }
