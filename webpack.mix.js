@@ -16,7 +16,10 @@ mix.js('resources/js/app.js', 'public/js')
 
 mix.styles([
     'resources/css/accessible-menu.css',
+    'resources/css/demi-footer.css',
+    'resources/css/footer.css',
     'resources/css/global.css',
+    'resources/css/gold-footer.css',
     'resources/css/header.css',
     'resources/css/main-menu.css',
     'resources/css/search-bar.css',

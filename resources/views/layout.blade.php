@@ -16,6 +16,6 @@
 	<h3>Date Recorded: @yield('history_date')</h3>
 	<h3>Transcript: </h3>@yield('history_transcript')
 
-	<!-- @yield('footer') -->
+	@include('footer')
 </body>
 </html>

@@ -1,4 +1,6 @@
 <header role="banner">
+                                                                                                      
+
 
 <header role="banner" class="header">
   <div class="header__top-bar">
@@ -43,15 +45,15 @@
     
 
 <nav class="main-menu main-navigation" role="navigation">
-    <ul class="nav-menu-mega-menu accessible-megamenu main-navigation__menu js-nav-menu-mega-menu" id="accessible-megamenu-1551897082468-1">
+    <ul class="nav-menu-mega-menu accessible-megamenu main-navigation__menu js-nav-menu-mega-menu" id="accessible-megamenu-1551901477515-1">
         <li class="nav-item-mega-menu main-navigation__item accessible-megamenu-top-nav-item">
-      <a href="#Find, Borrow, Request" class="main-navigation__navbar-text" id="accessible-megamenu-1551897082638-2" role="button" aria-controls="accessible-megamenu-1551897082638-3" aria-expanded="false" tabindex="0">
+      <a href="#Find, Borrow, Request" class="main-navigation__navbar-text" id="accessible-megamenu-1551901477540-2" role="button" aria-controls="accessible-megamenu-1551901477540-3" aria-expanded="false" tabindex="0">
         Find, Borrow, Request
         <div class="accordion-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.2 20.2"><style>.accord-fill{fill:#262626}</style><circle cx="10.1" cy="10.1" r="8.5" fill="none"></circle><path class="accord-fill" d="M10.1.6C4.9.6.6 4.9.6 10.1s4.3 9.5 9.5 9.5 9.5-4.3 9.5-9.5S15.3.6 10.1.6zm0 18c-4.7 0-8.5-3.8-8.5-8.5s3.8-8.5 8.5-8.5 8.5 3.8 8.5 8.5-3.8 8.5-8.5 8.5z"></path><path id="horizontal" class="accord-fill horizontal" d="M5.6 9.5h9v1.3h-9z"></path><path id="vertical" class="accord-fill vertical" d="M9.4 5.6h1.3v9H9.4z"></path></svg>
         </div>
       </a>
-      <div class="sub-nav-mega-menu main-navigation__mega-menu" id="accessible-megamenu-1551897082638-3" role="region" aria-expanded="false" aria-hidden="true" aria-labelledby="accessible-megamenu-1551897082638-2">
+      <div class="sub-nav-mega-menu main-navigation__mega-menu" id="accessible-megamenu-1551901477540-3" role="region" aria-expanded="false" aria-hidden="true" aria-labelledby="accessible-megamenu-1551901477540-2">
         <div class="main-navigation__mega-menu-inner">
                       <div class="main-navigation__mega-menu-group ">
               <span class="main-navigation__group-title">Find Materials</span>
@@ -119,14 +121,14 @@
                       </div>
               </div>
     </li>
-    <svg class="main-navigation__separator nav-item-mega-menu" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33 15"><path fill="none" stroke="#b3a369" stroke-miterlimit="10" d="M16.5 1v13" id="accessible-megamenu-1551897082639-5" role="region" aria-expanded="false" aria-hidden="true" class="sub-nav-mega-menu"></path></svg>        <li class="nav-item-mega-menu main-navigation__item accessible-megamenu-top-nav-item">
-      <a href="#Research, Help, Support" class="main-navigation__navbar-text" id="accessible-megamenu-1551897082642-6" role="button" aria-controls="accessible-megamenu-1551897082642-7" aria-expanded="false" tabindex="0">
+    <svg class="main-navigation__separator nav-item-mega-menu" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33 15"><path fill="none" stroke="#b3a369" stroke-miterlimit="10" d="M16.5 1v13" id="accessible-megamenu-1551901477541-5" role="region" aria-expanded="false" aria-hidden="true" class="sub-nav-mega-menu"></path></svg>        <li class="nav-item-mega-menu main-navigation__item accessible-megamenu-top-nav-item">
+      <a href="#Research, Help, Support" class="main-navigation__navbar-text" id="accessible-megamenu-1551901477543-6" role="button" aria-controls="accessible-megamenu-1551901477543-7" aria-expanded="false" tabindex="0">
         Research, Help, Support
         <div class="accordion-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.2 20.2"><style>.accord-fill{fill:#262626}</style><circle cx="10.1" cy="10.1" r="8.5" fill="none"></circle><path class="accord-fill" d="M10.1.6C4.9.6.6 4.9.6 10.1s4.3 9.5 9.5 9.5 9.5-4.3 9.5-9.5S15.3.6 10.1.6zm0 18c-4.7 0-8.5-3.8-8.5-8.5s3.8-8.5 8.5-8.5 8.5 3.8 8.5 8.5-3.8 8.5-8.5 8.5z"></path><path id="horizontal" class="accord-fill horizontal" d="M5.6 9.5h9v1.3h-9z"></path><path id="vertical" class="accord-fill vertical" d="M9.4 5.6h1.3v9H9.4z"></path></svg>
         </div>
       </a>
-      <div class="sub-nav-mega-menu main-navigation__mega-menu" id="accessible-megamenu-1551897082642-7" role="region" aria-expanded="false" aria-hidden="true" aria-labelledby="accessible-megamenu-1551897082642-6">
+      <div class="sub-nav-mega-menu main-navigation__mega-menu" id="accessible-megamenu-1551901477543-7" role="region" aria-expanded="false" aria-hidden="true" aria-labelledby="accessible-megamenu-1551901477543-6">
         <div class="main-navigation__mega-menu-inner">
                       <div class="main-navigation__mega-menu-group ">
               <span class="main-navigation__group-title">Get Help</span>
@@ -211,14 +213,14 @@
                       </div>
               </div>
     </li>
-    <svg class="main-navigation__separator nav-item-mega-menu" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33 15"><path fill="none" stroke="#b3a369" stroke-miterlimit="10" d="M16.5 1v13" id="accessible-megamenu-1551897082642-9" role="region" aria-expanded="false" aria-hidden="true" class="sub-nav-mega-menu"></path></svg>        <li class="nav-item-mega-menu main-navigation__item accessible-megamenu-top-nav-item">
-      <a href="#Spaces &amp; Technology" class="main-navigation__navbar-text" id="accessible-megamenu-1551897082643-10" role="button" aria-controls="accessible-megamenu-1551897082643-11" aria-expanded="false" tabindex="0">
+    <svg class="main-navigation__separator nav-item-mega-menu" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33 15"><path fill="none" stroke="#b3a369" stroke-miterlimit="10" d="M16.5 1v13" id="accessible-megamenu-1551901477543-9" role="region" aria-expanded="false" aria-hidden="true" class="sub-nav-mega-menu"></path></svg>        <li class="nav-item-mega-menu main-navigation__item accessible-megamenu-top-nav-item">
+      <a href="#Spaces &amp; Technology" class="main-navigation__navbar-text" id="accessible-megamenu-1551901477544-10" role="button" aria-controls="accessible-megamenu-1551901477544-11" aria-expanded="false" tabindex="0">
         Spaces &amp; Technology
         <div class="accordion-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.2 20.2"><style>.accord-fill{fill:#262626}</style><circle cx="10.1" cy="10.1" r="8.5" fill="none"></circle><path class="accord-fill" d="M10.1.6C4.9.6.6 4.9.6 10.1s4.3 9.5 9.5 9.5 9.5-4.3 9.5-9.5S15.3.6 10.1.6zm0 18c-4.7 0-8.5-3.8-8.5-8.5s3.8-8.5 8.5-8.5 8.5 3.8 8.5 8.5-3.8 8.5-8.5 8.5z"></path><path id="horizontal" class="accord-fill horizontal" d="M5.6 9.5h9v1.3h-9z"></path><path id="vertical" class="accord-fill vertical" d="M9.4 5.6h1.3v9H9.4z"></path></svg>
         </div>
       </a>
-      <div class="sub-nav-mega-menu main-navigation__mega-menu" id="accessible-megamenu-1551897082643-11" role="region" aria-expanded="false" aria-hidden="true" aria-labelledby="accessible-megamenu-1551897082643-10">
+      <div class="sub-nav-mega-menu main-navigation__mega-menu" id="accessible-megamenu-1551901477544-11" role="region" aria-expanded="false" aria-hidden="true" aria-labelledby="accessible-megamenu-1551901477544-10">
         <div class="main-navigation__mega-menu-inner">
                       <div class="main-navigation__mega-menu-group ">
               <span class="main-navigation__group-title">Study Rooms &amp; Lockers</span>
@@ -286,14 +288,14 @@
                       </div>
               </div>
     </li>
-    <svg class="main-navigation__separator nav-item-mega-menu" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33 15"><path fill="none" stroke="#b3a369" stroke-miterlimit="10" d="M16.5 1v13" id="accessible-megamenu-1551897082644-13" role="region" aria-expanded="false" aria-hidden="true" class="sub-nav-mega-menu"></path></svg>        <li class="nav-item-mega-menu main-navigation__item accessible-megamenu-top-nav-item">
-      <a href="#About the Library" class="main-navigation__navbar-text" id="accessible-megamenu-1551897082645-14" role="button" aria-controls="accessible-megamenu-1551897082645-15" aria-expanded="false" tabindex="0">
+    <svg class="main-navigation__separator nav-item-mega-menu" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33 15"><path fill="none" stroke="#b3a369" stroke-miterlimit="10" d="M16.5 1v13" id="accessible-megamenu-1551901477544-13" role="region" aria-expanded="false" aria-hidden="true" class="sub-nav-mega-menu"></path></svg>        <li class="nav-item-mega-menu main-navigation__item accessible-megamenu-top-nav-item">
+      <a href="#About the Library" class="main-navigation__navbar-text" id="accessible-megamenu-1551901477546-14" role="button" aria-controls="accessible-megamenu-1551901477546-15" aria-expanded="false" tabindex="0">
         About the Library
         <div class="accordion-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.2 20.2"><style>.accord-fill{fill:#262626}</style><circle cx="10.1" cy="10.1" r="8.5" fill="none"></circle><path class="accord-fill" d="M10.1.6C4.9.6.6 4.9.6 10.1s4.3 9.5 9.5 9.5 9.5-4.3 9.5-9.5S15.3.6 10.1.6zm0 18c-4.7 0-8.5-3.8-8.5-8.5s3.8-8.5 8.5-8.5 8.5 3.8 8.5 8.5-3.8 8.5-8.5 8.5z"></path><path id="horizontal" class="accord-fill horizontal" d="M5.6 9.5h9v1.3h-9z"></path><path id="vertical" class="accord-fill vertical" d="M9.4 5.6h1.3v9H9.4z"></path></svg>
         </div>
       </a>
-      <div class="sub-nav-mega-menu main-navigation__mega-menu" id="accessible-megamenu-1551897082645-15" role="region" aria-expanded="false" aria-hidden="true" aria-labelledby="accessible-megamenu-1551897082645-14">
+      <div class="sub-nav-mega-menu main-navigation__mega-menu" id="accessible-megamenu-1551901477546-15" role="region" aria-expanded="false" aria-hidden="true" aria-labelledby="accessible-megamenu-1551901477546-14">
         <div class="main-navigation__mega-menu-inner">
                       <div class="main-navigation__mega-menu-group ">
               <span class="main-navigation__group-title">General Information</span>
@@ -716,4 +718,4 @@
     </div>
   </div>
 </header>
-</header>
+  </header>
