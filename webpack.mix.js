@@ -39,3 +39,4 @@ mix.scripts([
 ], 'public/js/all.js');
 
 mix.copyDirectory('resources/fonts', 'public/fonts');
+mix.copyDirectory('resources/assets', 'public/assets');
