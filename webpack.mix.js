@@ -11,9 +11,6 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-   .sass('resources/sass/app.scss', 'public/css');
-
 mix.styles([
     'resources/css/accessible-menu.css',
     'resources/css/demi-footer.css',
@@ -40,3 +37,5 @@ mix.scripts([
     'public/js/ready.min.js',
     'public/js/search-bar.js'
 ], 'public/js/all.js');
+
+mix.copyDirectory('resources/fonts', 'public/fonts');
