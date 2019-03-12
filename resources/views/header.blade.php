@@ -1,7 +1,6 @@
 <header role="banner">
                                                                                                       
 
-
 <header role="banner" class="header">
   <div class="header__top-bar">
     <div class="header__top-bar--inner">
@@ -82,16 +81,16 @@
               <span class="main-navigation__group-title">Borrow &amp; Request</span>
                           <ul class="sub-nav-mega-menu-group main-navigation__group-menu" role="menu">
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/account">My Account</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/account">My Account</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/checkout-renew-return">Checkout, Renew &amp; Return</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/checkout-renew-return">Checkout, Renew &amp; Return</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
                     <a class="main-navigation__group-link" href="https://illiad.library.gatech.edu/">Interlibrary Loan</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/purchase">Recommend a Purchase</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/purchase">Recommend a Purchase</a>
                   </li>
                               </ul>
                         </div>
@@ -99,22 +98,22 @@
               <span class="main-navigation__group-title">Archives &amp; Special Collections</span>
                           <ul class="sub-nav-mega-menu-group main-navigation__group-menu" role="menu">
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/archives">Collections</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/archives">Collections</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/using-the-archives">Using the Archives</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/using-the-archives">Using the Archives</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/archives-teaching">Teaching &amp; Learning</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/archives-teaching">Teaching &amp; Learning</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/archives-about">About</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/archives-about">About</a>
                   </li>
                               </ul>
                         </div>
                   </div>
                   <div class="main-navigation__footer">
-                        <a href="/find-borrow-request">
+                        <a href="https://library.gatech.edu/find-borrow-request">
               See All
             </a>
             <svg viewBox="0 0 13 13" xmlns="http://www.w3.org/2000/svg"><g class="chevron-color" fill="#FFF" fill-rule="evenodd"><path d="M0 0l3.616 6.5L0 13h3.384L7 6.5 3.384 0z"></path><path d="M6 0l3.616 6.5L6 13h3.384L13 6.5 9.384 0z"></path></g></svg>
@@ -134,10 +133,10 @@
               <span class="main-navigation__group-title">Get Help</span>
                           <ul class="sub-nav-mega-menu-group main-navigation__group-menu" role="menu">
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/help">Ask Us!</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/help">Ask Us!</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/events">Library Classes</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/events">Library Classes</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
                     <a class="main-navigation__group-link" href="http://libguides.gatech.edu">Research Guides</a>
@@ -146,7 +145,7 @@
                     <a class="main-navigation__group-link" href="http://libguides.gatech.edu/citationtools">Cite Your Sources</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/consultations">Research Consultations</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/consultations">Research Consultations</a>
                   </li>
                               </ul>
                         </div>
@@ -154,19 +153,19 @@
               <span class="main-navigation__group-title">Research &amp; Scholarship</span>
                           <ul class="sub-nav-mega-menu-group main-navigation__group-menu" role="menu">
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/data-management">Research Data Management</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/data-management">Research Data Management</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/patents">Patents &amp; Trademarks</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/patents">Patents &amp; Trademarks</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/open-access">Open Access</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/open-access">Open Access</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
                     <a class="main-navigation__group-link" href="https://smartech.gatech.edu/">SMARTech</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/archives">Archives &amp; Special Collections</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/archives">Archives &amp; Special Collections</a>
                   </li>
                               </ul>
                         </div>
@@ -174,16 +173,16 @@
               <span class="main-navigation__group-title">Teaching &amp; Learning</span>
                           <ul class="sub-nav-mega-menu-group main-navigation__group-menu" role="menu">
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/events">Classes &amp; Events</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/events">Classes &amp; Events</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/instruction">Instruction Support</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/instruction">Instruction Support</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/experts">Subject Experts</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/experts">Subject Experts</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/lecture-recording">Lecture Recording</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/lecture-recording">Lecture Recording</a>
                   </li>
                               </ul>
                         </div>
@@ -191,22 +190,22 @@
               <span class="main-navigation__group-title">Help for...</span>
                           <ul class="sub-nav-mega-menu-group main-navigation__group-menu" role="menu">
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/undergrads">Undergrads</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/undergrads">Undergrads</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/grads">Grad Students</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/grads">Grad Students</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/faculty">Faculty &amp; Instructors</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/faculty">Faculty &amp; Instructors</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/distance-learners">Distance Learners</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/distance-learners">Distance Learners</a>
                   </li>
                               </ul>
                         </div>
                   </div>
                   <div class="main-navigation__footer">
-                        <a href="/research-help-support">
+                        <a href="https://library.gatech.edu/research-help-support">
               See All
             </a>
             <svg viewBox="0 0 13 13" xmlns="http://www.w3.org/2000/svg"><g class="chevron-color" fill="#FFF" fill-rule="evenodd"><path d="M0 0l3.616 6.5L0 13h3.384L7 6.5 3.384 0z"></path><path d="M6 0l3.616 6.5L6 13h3.384L13 6.5 9.384 0z"></path></g></svg>
@@ -226,13 +225,13 @@
               <span class="main-navigation__group-title">Study Rooms &amp; Lockers</span>
                           <ul class="sub-nav-mega-menu-group main-navigation__group-menu" role="menu">
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/study-spaces">Collaborative &amp; Quiet Study Spaces</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/study-spaces">Collaborative &amp; Quiet Study Spaces</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/spaces">Reserve a Room</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/spaces">Reserve a Room</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/lockers">Lockers</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/lockers">Lockers</a>
                   </li>
                               </ul>
                         </div>
@@ -240,19 +239,19 @@
               <span class="main-navigation__group-title">Computers, Printing &amp; Technology</span>
                           <ul class="sub-nav-mega-menu-group main-navigation__group-menu" role="menu">
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/computing">Computers &amp; Printing</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/computing">Computers &amp; Printing</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/gadgets">Equipment Lending (Gadgets)</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/gadgets">Equipment Lending (Gadgets)</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/multimedia-studio">Multimedia Studio</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/multimedia-studio">Multimedia Studio</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/vizlab">Data Visualization Lab</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/vizlab">Data Visualization Lab</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/retrotech">retroTECH</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/retrotech">retroTECH</a>
                   </li>
                               </ul>
                         </div>
@@ -260,28 +259,28 @@
               <span class="main-navigation__group-title">Library Spaces</span>
                           <ul class="sub-nav-mega-menu-group main-navigation__group-menu" role="menu">
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/library-store">Library Store</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/library-store">Library Store</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/innovation-ideation">Innovation &amp; Ideation Studio</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/innovation-ideation">Innovation &amp; Ideation Studio</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/scifi-lounge">Science Fiction Lounge</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/scifi-lounge">Science Fiction Lounge</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/archives-reading-room">Archives Reading Room</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/archives-reading-room">Archives Reading Room</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/grad-community">Graduate Student Community</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/grad-community">Graduate Student Community</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/clough">Clough Commons</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/clough">Clough Commons</a>
                   </li>
                               </ul>
                         </div>
                   </div>
                   <div class="main-navigation__footer">
-                        <a href="/spaces-technology">
+                        <a href="https://library.gatech.edu/spaces-technology">
               See All
             </a>
             <svg viewBox="0 0 13 13" xmlns="http://www.w3.org/2000/svg"><g class="chevron-color" fill="#FFF" fill-rule="evenodd"><path d="M0 0l3.616 6.5L0 13h3.384L7 6.5 3.384 0z"></path><path d="M6 0l3.616 6.5L6 13h3.384L13 6.5 9.384 0z"></path></g></svg>
@@ -301,13 +300,13 @@
               <span class="main-navigation__group-title">General Information</span>
                           <ul class="sub-nav-mega-menu-group main-navigation__group-menu" role="menu">
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/locations">Locations</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/locations">Locations</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/visitors">Visitor Information</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/visitors">Visitor Information</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/library-next">Library Next</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/library-next">Library Next</a>
                   </li>
                               </ul>
                         </div>
@@ -315,16 +314,16 @@
               <span class="main-navigation__group-title">Our Organization</span>
                           <ul class="sub-nav-mega-menu-group main-navigation__group-menu" role="menu">
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/about#mission">Mission &amp; Vision</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/about#mission">Mission &amp; Vision</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/directory">Staff Directory</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/directory">Staff Directory</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/about#lfab">Advisory Boards</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/about#lfab">Advisory Boards</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/jobs">Job Opportunities</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/jobs">Job Opportunities</a>
                   </li>
                               </ul>
                         </div>
@@ -332,19 +331,19 @@
               <span class="main-navigation__group-title">Policies &amp; Guidelines</span>
                           <ul class="sub-nav-mega-menu-group main-navigation__group-menu" role="menu">
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/records-management">Records Management</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/records-management">Records Management</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/checkout-renew-return#lending">Lending Policies</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/checkout-renew-return#lending">Lending Policies</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/privacy-policy">Privacy Policy</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/privacy-policy">Privacy Policy</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/eresource-policies">eResource Policies</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/eresource-policies">eResource Policies</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/accessibility">Info for Users with Disabilities</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/accessibility">Info for Users with Disabilities</a>
                   </li>
                               </ul>
                         </div>
@@ -352,19 +351,19 @@
               <span class="main-navigation__group-title">Connect with Us</span>
                           <ul class="sub-nav-mega-menu-group main-navigation__group-menu" role="menu">
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/events">Events</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/events">Events</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/articles">News</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/articles">News</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/give">Give to the Library</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/give">Give to the Library</a>
                   </li>
                               </ul>
                         </div>
                   </div>
                   <div class="main-navigation__footer">
-                        <a href="/about">
+                        <a href="https://library.gatech.edu/about">
               See All
             </a>
             <svg viewBox="0 0 13 13" xmlns="http://www.w3.org/2000/svg"><g class="chevron-color" fill="#FFF" fill-rule="evenodd"><path d="M0 0l3.616 6.5L0 13h3.384L7 6.5 3.384 0z"></path><path d="M6 0l3.616 6.5L6 13h3.384L13 6.5 9.384 0z"></path></g></svg>
@@ -374,7 +373,7 @@
           </ul>
 </nav>
     <div class="header__menu--secondary-menu">
-            <a href="/give" class="header__menu--secondary-item give-item">
+            <a href="https://library.gatech.edu/give" class="header__menu--secondary-item give-item">
         Give now
         <span class="give-item__icon">
           <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12.1 11"><style>.chevron{fill:#b3a369}</style><path class="chevron" d="M9 0H6l.8 1.3 2.4 4.2-2.4 4.2L6 11h3l3.1-5.5z"></path><path class="chevron" d="M6.1 5.5L6 5.3 3 0H0l3.2 5.5L0 11h3l3-5.3z"></path></svg>
@@ -424,16 +423,16 @@
               <span class="main-navigation__group-title">Borrow &amp; Request</span>
                           <ul class="sub-nav-mega-menu-group-mobile main-navigation__group-menu" role="menu">
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/account">My Account</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/account">My Account</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/checkout-renew-return">Checkout, Renew &amp; Return</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/checkout-renew-return">Checkout, Renew &amp; Return</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
                     <a class="main-navigation__group-link" href="https://illiad.library.gatech.edu/">Interlibrary Loan</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/purchase">Recommend a Purchase</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/purchase">Recommend a Purchase</a>
                   </li>
                               </ul>
                         </div>
@@ -441,22 +440,22 @@
               <span class="main-navigation__group-title">Archives &amp; Special Collections</span>
                           <ul class="sub-nav-mega-menu-group-mobile main-navigation__group-menu" role="menu">
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/archives">Collections</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/archives">Collections</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/using-the-archives">Using the Archives</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/using-the-archives">Using the Archives</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/archives-teaching">Teaching &amp; Learning</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/archives-teaching">Teaching &amp; Learning</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/archives-about">About</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/archives-about">About</a>
                   </li>
                               </ul>
                         </div>
                   </div>
                   <div class="main-navigation__footer">
-                        <a href="/find-borrow-request">
+                        <a href="https://library.gatech.edu/find-borrow-request">
               See All
             </a>
             <svg viewBox="0 0 13 13" xmlns="http://www.w3.org/2000/svg"><g class="chevron-color" fill="#FFF" fill-rule="evenodd"><path d="M0 0l3.616 6.5L0 13h3.384L7 6.5 3.384 0z"></path><path d="M6 0l3.616 6.5L6 13h3.384L13 6.5 9.384 0z"></path></g></svg>
@@ -476,10 +475,10 @@
               <span class="main-navigation__group-title">Get Help</span>
                           <ul class="sub-nav-mega-menu-group-mobile main-navigation__group-menu" role="menu">
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/help">Ask Us!</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/help">Ask Us!</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/events">Library Classes</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/events">Library Classes</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
                     <a class="main-navigation__group-link" href="http://libguides.gatech.edu">Research Guides</a>
@@ -488,7 +487,7 @@
                     <a class="main-navigation__group-link" href="http://libguides.gatech.edu/citationtools">Cite Your Sources</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/consultations">Research Consultations</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/consultations">Research Consultations</a>
                   </li>
                               </ul>
                         </div>
@@ -496,19 +495,19 @@
               <span class="main-navigation__group-title">Research &amp; Scholarship</span>
                           <ul class="sub-nav-mega-menu-group-mobile main-navigation__group-menu" role="menu">
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/data-management">Research Data Management</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/data-management">Research Data Management</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/patents">Patents &amp; Trademarks</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/patents">Patents &amp; Trademarks</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/open-access">Open Access</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/open-access">Open Access</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
                     <a class="main-navigation__group-link" href="https://smartech.gatech.edu/">SMARTech</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/archives">Archives &amp; Special Collections</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/archives">Archives &amp; Special Collections</a>
                   </li>
                               </ul>
                         </div>
@@ -516,16 +515,16 @@
               <span class="main-navigation__group-title">Teaching &amp; Learning</span>
                           <ul class="sub-nav-mega-menu-group-mobile main-navigation__group-menu" role="menu">
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/events">Classes &amp; Events</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/events">Classes &amp; Events</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/instruction">Instruction Support</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/instruction">Instruction Support</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/experts">Subject Experts</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/experts">Subject Experts</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/lecture-recording">Lecture Recording</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/lecture-recording">Lecture Recording</a>
                   </li>
                               </ul>
                         </div>
@@ -533,22 +532,22 @@
               <span class="main-navigation__group-title">Help for...</span>
                           <ul class="sub-nav-mega-menu-group-mobile main-navigation__group-menu" role="menu">
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/undergrads">Undergrads</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/undergrads">Undergrads</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/grads">Grad Students</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/grads">Grad Students</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/faculty">Faculty &amp; Instructors</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/faculty">Faculty &amp; Instructors</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/distance-learners">Distance Learners</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/distance-learners">Distance Learners</a>
                   </li>
                               </ul>
                         </div>
                   </div>
                   <div class="main-navigation__footer">
-                        <a href="/research-help-support">
+                        <a href="https://library.gatech.edu/research-help-support">
               See All
             </a>
             <svg viewBox="0 0 13 13" xmlns="http://www.w3.org/2000/svg"><g class="chevron-color" fill="#FFF" fill-rule="evenodd"><path d="M0 0l3.616 6.5L0 13h3.384L7 6.5 3.384 0z"></path><path d="M6 0l3.616 6.5L6 13h3.384L13 6.5 9.384 0z"></path></g></svg>
@@ -568,13 +567,13 @@
               <span class="main-navigation__group-title">Study Rooms &amp; Lockers</span>
                           <ul class="sub-nav-mega-menu-group-mobile main-navigation__group-menu" role="menu">
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/study-spaces">Collaborative &amp; Quiet Study Spaces</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/study-spaces">Collaborative &amp; Quiet Study Spaces</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/spaces">Reserve a Room</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/spaces">Reserve a Room</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/lockers">Lockers</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/lockers">Lockers</a>
                   </li>
                               </ul>
                         </div>
@@ -582,19 +581,19 @@
               <span class="main-navigation__group-title">Computers, Printing &amp; Technology</span>
                           <ul class="sub-nav-mega-menu-group-mobile main-navigation__group-menu" role="menu">
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/computing">Computers &amp; Printing</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/computing">Computers &amp; Printing</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/gadgets">Equipment Lending (Gadgets)</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/gadgets">Equipment Lending (Gadgets)</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/multimedia-studio">Multimedia Studio</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/multimedia-studio">Multimedia Studio</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/vizlab">Data Visualization Lab</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/vizlab">Data Visualization Lab</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/retrotech">retroTECH</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/retrotech">retroTECH</a>
                   </li>
                               </ul>
                         </div>
@@ -602,28 +601,28 @@
               <span class="main-navigation__group-title">Library Spaces</span>
                           <ul class="sub-nav-mega-menu-group-mobile main-navigation__group-menu" role="menu">
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/library-store">Library Store</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/library-store">Library Store</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/innovation-ideation">Innovation &amp; Ideation Studio</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/innovation-ideation">Innovation &amp; Ideation Studio</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/scifi-lounge">Science Fiction Lounge</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/scifi-lounge">Science Fiction Lounge</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/archives-reading-room">Archives Reading Room</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/archives-reading-room">Archives Reading Room</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/grad-community">Graduate Student Community</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/grad-community">Graduate Student Community</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/clough">Clough Commons</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/clough">Clough Commons</a>
                   </li>
                               </ul>
                         </div>
                   </div>
                   <div class="main-navigation__footer">
-                        <a href="/spaces-technology">
+                        <a href="https://library.gatech.edu/spaces-technology">
               See All
             </a>
             <svg viewBox="0 0 13 13" xmlns="http://www.w3.org/2000/svg"><g class="chevron-color" fill="#FFF" fill-rule="evenodd"><path d="M0 0l3.616 6.5L0 13h3.384L7 6.5 3.384 0z"></path><path d="M6 0l3.616 6.5L6 13h3.384L13 6.5 9.384 0z"></path></g></svg>
@@ -643,13 +642,13 @@
               <span class="main-navigation__group-title">General Information</span>
                           <ul class="sub-nav-mega-menu-group-mobile main-navigation__group-menu" role="menu">
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/locations">Locations</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/locations">Locations</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/visitors">Visitor Information</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/visitors">Visitor Information</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/library-next">Library Next</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/library-next">Library Next</a>
                   </li>
                               </ul>
                         </div>
@@ -657,16 +656,16 @@
               <span class="main-navigation__group-title">Our Organization</span>
                           <ul class="sub-nav-mega-menu-group-mobile main-navigation__group-menu" role="menu">
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/about#mission">Mission &amp; Vision</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/about#mission">Mission &amp; Vision</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/directory">Staff Directory</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/directory">Staff Directory</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/about#lfab">Advisory Boards</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/about#lfab">Advisory Boards</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/jobs">Job Opportunities</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/jobs">Job Opportunities</a>
                   </li>
                               </ul>
                         </div>
@@ -674,19 +673,19 @@
               <span class="main-navigation__group-title">Policies &amp; Guidelines</span>
                           <ul class="sub-nav-mega-menu-group-mobile main-navigation__group-menu" role="menu">
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/records-management">Records Management</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/records-management">Records Management</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/checkout-renew-return#lending">Lending Policies</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/checkout-renew-return#lending">Lending Policies</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/privacy-policy">Privacy Policy</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/privacy-policy">Privacy Policy</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/eresource-policies">eResource Policies</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/eresource-policies">eResource Policies</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/accessibility">Info for Users with Disabilities</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/accessibility">Info for Users with Disabilities</a>
                   </li>
                               </ul>
                         </div>
@@ -694,19 +693,19 @@
               <span class="main-navigation__group-title">Connect with Us</span>
                           <ul class="sub-nav-mega-menu-group-mobile main-navigation__group-menu" role="menu">
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/events">Events</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/events">Events</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/articles">News</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/articles">News</a>
                   </li>
                                   <li class="main-navigation__group-item accessible-megamenu-panel-group" role="menuitem">
-                    <a class="main-navigation__group-link" href="/give">Give to the Library</a>
+                    <a class="main-navigation__group-link" href="https://library.gatech.edu/give">Give to the Library</a>
                   </li>
                               </ul>
                         </div>
                   </div>
                   <div class="main-navigation__footer">
-                        <a href="/about">
+                        <a href="https://library.gatech.edu/about">
               See All
             </a>
             <svg viewBox="0 0 13 13" xmlns="http://www.w3.org/2000/svg"><g class="chevron-color" fill="#FFF" fill-rule="evenodd"><path d="M0 0l3.616 6.5L0 13h3.384L7 6.5 3.384 0z"></path><path d="M6 0l3.616 6.5L6 13h3.384L13 6.5 9.384 0z"></path></g></svg>
