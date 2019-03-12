@@ -25,18 +25,17 @@ mix.styles([
 
 
 mix.scripts([
-    'public/js/app.js',
-    'public/js/bootstrap.js',
-    'public/js/drupal.init.js',
-    'public/js/drupal.js',
-    'public/js/drupalSettingsLoader.js',
-    'public/js/header.js',
-    'public/js/jquery.min.js',
-    'public/js/jquery.once.min.js',
-    'public/js/main-menu.js',
-    'public/js/mega-menu.js',
-    'public/js/ready.min.js',
-    'public/js/search-bar.js'
+    'resources/js/app.js',
+    'resources/js/drupalSettingsLoader.js',
+    'resources/js/drupal.js',
+    'resources/js/drupal.init.js',
+    'resources/js/header.js',
+    'resources/js/jquery.min.js',
+    'resources/js/jquery.once.min.js',
+    'resources/js/main-menu.js',
+    'resources/js/mega-menu.js',
+    'resources/js/ready.min.js',
+    'resources/js/search-bar.js'
 ], 'public/js/all.js');
 
 mix.copyDirectory('resources/fonts', 'public/fonts');
