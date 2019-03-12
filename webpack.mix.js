@@ -26,6 +26,7 @@ mix.styles([
 
 mix.scripts([
     'public/js/app.js',
+    'public/js/bootstrap.js',
     'public/js/drupal.init.js',
     'public/js/drupal.js',
     'public/js/drupalSettingsLoader.js',

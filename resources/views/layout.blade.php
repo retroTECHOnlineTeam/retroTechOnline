@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <link href="{{ asset('css/all.css') }}" rel="stylesheet">
 <script type="text/javascript" src="{{ asset('js/all.js') }}"></script>
 <head>
