@@ -51,9 +51,13 @@ class ArchiveSpaceApi {
     }
   }
 
-  public function getResource(int $repo_id, int $record_id) {
-    $url = BASE_URI . '/repositories/' . $repo_id . '/resources/' . $record_id;
-    //$url = BASE_URI . '/repositories/' . $repo_id . '/resources?all_ids=true';
+  public function getResource(int $record_id, bool $get_tree) {
+    if ($get_tree) {
+      $url = BASE_URI . '/repositories/' . REPO_ID . '/resources/' . $record_id . '/tree';
+    } else {
+      $url = BASE_URI . '/repositories/' . REPO_ID . '/resources/' . $record_id;
+    }
+
 
     try {
       $response = $this->client->request('GET', $url, [
@@ -72,14 +76,15 @@ class ArchiveSpaceApi {
     if ($response->getStatusCode() == 200) {
       echo "Successfully retrieved resource!\n";
       $data = json_decode($response->getBody(), true);
-      var_dump($data);
+      //var_dump($data); 
+      return($data);
     } else {
       throw new Error("Something went wrong with your request. Unable to get resource.\n");
     }
   }
 
-  public function getDigitalObject(int $repo_id, int $digitalobject_id) {
-    $url = BASE_URI . '/repositories/' . $repo_id . '/digital_objects/' . $digitalobject_id;
+  public function getDigitalObject(int $digitalobject_id) {
+    $url = BASE_URI . '/repositories/' . REPO_ID . '/digital_objects/' . $digitalobject_id;
 
     try {
       $response = $this->client->request('GET', $url, [
@@ -98,17 +103,57 @@ class ArchiveSpaceApi {
     if ($response->getStatusCode() == 200) {
       echo "Successfully retrieved digital object!\n";
       $data = json_decode($response->getBody(), true);
-      var_dump($data);
+      //var_dump($data);
+      return($data);
     } else {
       throw new Error("Something went wrong with your request. Unable to get digital object.\n");
     }
   }
 
+  public function getArchivalObject(int $archivalobject_id) {
+    $url = BASE_URI . '/repositories/' . REPO_ID . '/archival_objects/' . $archivalobject_id;
+
+    try {
+      $response = $this->client->request('GET', $url, [
+        'headers' => ['X-ArchivesSpace-Session' => $this->session_id],
+        'on_stats' => function (GuzzleHttp\TransferStats $stats) use (&$url) {
+          $url = $stats->getEffectiveUri();
+        }]);
+    } catch (GuzzleHttp\Exception\ClientException $e) {
+      echo "There was a problem with your request.\n";
+      echo 'HTTP request URL: ' . $url . "\n";
+      echo 'HTTP response status: ' . $e->getResponse()->getStatusCode() . "\n";
+      echo 'Exception: ' . $e->getMessage() . "\n";
+      die(); // make this a retry with a recurs limit
+    }
+
+    if ($response->getStatusCode() == 200) {
+      echo "Successfully retrieved archival object!\n";
+      $data = json_decode($response->getBody(), true);
+      //var_dump($data);
+      return($data);
+    } else {
+      throw new Error("Something went wrong with your request. Unable to get archival object.\n");
+    }
+  }
+
+  public function getObjectsFromTree(array $resource_tree) {
+    $ret = array();
+    foreach ($resource_tree["children"] as $child) {
+      var_dump($child);
+      array_push($ret, $this->getArchivalObject($child["id"]));
+      // add to return array
+    }
+    return ($ret);
+  }
 }
 
   echo "TESTING START!\n";
   $c = new ArchiveSpaceApi();
   $c->authenticate();
-  $c->getDigitalObject(2, 5080);
+  $tree = $c->getResource(1753, true);
+  //var_dump($tree);
+  $c->getObjectsFromTree($tree);
+
   echo "TEST DONE!\n";
 ?>
