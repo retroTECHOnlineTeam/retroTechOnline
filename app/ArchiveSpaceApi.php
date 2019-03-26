@@ -146,14 +146,27 @@ class ArchiveSpaceApi {
     }
     return ($ret);
   }
+
+  public function getDigitalObjectsFromArchivalObject(array $archivalobject) {
+    $ret = array();
+    // loop trhough instances
+    foreach ($archivalobject["instances"] as $instance) {
+      var_dump($instance);
+      array_push($ret, $this->getDigitalObject($instance["digital_object"]["ref"]));
+      // add to return array
+    }
+    return ($ret);
+  }
 }
 
   echo "TESTING START!\n";
   $c = new ArchiveSpaceApi();
   $c->authenticate();
-  $tree = $c->getResource(1753, true);
-  //var_dump($tree);
-  $c->getObjectsFromTree($tree);
+  // $tree = $c->getResource(1753, true);
+  // //var_dump($tree);
+  // $c->getObjectsFromTree($tree);
+  $ob = $c->getArchivalObject(84337);
+  var_dump($c->getDigitalObjectsFromArchivalObject($ob));
 
   echo "TEST DONE!\n";
 ?>
