@@ -18,3 +18,10 @@ Route::get('/', function () {
 Route::get('/entry', function () {
     return view('entry');
 });
+
+Route::get('/{id}', function ($id) {
+
+	$cli = new ArchiveSpaceApi();
+	$d = $cli->serveASpaceData($id);
+    return view('entry', $d);
+});
