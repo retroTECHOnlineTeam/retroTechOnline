@@ -40,6 +40,10 @@
         "classmap": [
             "database/seeds",
             "database/factories"
+        ],
+        "files": [
+            "app/ArchiveSpaceApi.php",
+            "api_creds_prod.php"
         ]
     },
     "autoload-dev": {
