@@ -1,5 +1,5 @@
 <?php
-require './vendor/autoload.php';
+
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Request;
 
@@ -20,8 +20,6 @@ class ArchiveSpaceApi {
   }
 
   public function authenticate() {
-    include './api_creds_prod.php';
-
     try {
       // sanitize this?
       $authuri = BASE_URI . '/users/' . USERNAME . '/login?password=' . PASSWORD;
@@ -140,7 +138,6 @@ class ArchiveSpaceApi {
   public function getObjectsFromTree(array $resource_tree) {
     $ret = array();
     foreach ($resource_tree["children"] as $child) {
-      var_dump($child);
       array_push($ret, $this->getArchivalObject($child["id"]));
       // add to return array
     }
@@ -149,24 +146,43 @@ class ArchiveSpaceApi {
 
   public function getDigitalObjectsFromArchivalObject(array $archivalobject) {
     $ret = array();
-    // loop trhough instances
     foreach ($archivalobject["instances"] as $instance) {
-      var_dump($instance);
-      array_push($ret, $this->getDigitalObject($instance["digital_object"]["ref"]));
-      // add to return array
+      $do_ref = end(explode("/", $instance["digital_object"]["ref"]));
+      // add check here that ref is a valid integer/not empty
+      array_push($ret, $this->getDigitalObject($do_ref));
     }
     return ($ret);
   }
+
+  public function getArchivalObjectFromDigitalObject(array $digitalobject) {
+    $ao_ref = explode("/", $digitalobject["linked_instances"][0]["ref"]);
+    return $this->getArchivalObject(end($ao_ref));
+  }
+
+  public function outputDigitalObjects(array $object_array) {
+    $i = 0;
+    foreach ($object_array as $obj) {
+      echo("Object ".$i.":\n");
+      echo($obj['title']."\n");
+      echo($obj['digital_object_id']."\n");
+      //var_dump($obj);
+      $i++;
+    }
+  }
+
+  public function serveASpaceData(int $do_id) {
+    $cli = new ArchiveSpaceApi();
+    $cli->authenticate();
+    // Fetch digital object from id given as route url parameter
+    $do = $cli->getDigitalObject($do_id);
+    $ao = $cli->getArchivalObjectFromDigitalObject($do);
+    $data = array("entry_name"        => $ao['display_string'],
+                  "entry_date"        => $ao['dates'][0]['expression'],
+                  "entry_description" => $do['notes'],
+                  "emulation_url"     => $do['digital_object_id']);
+    var_dump($data);
+    return $data;
+  }
 }
 
-  echo "TESTING START!\n";
-  $c = new ArchiveSpaceApi();
-  $c->authenticate();
-  // $tree = $c->getResource(1753, true);
-  // //var_dump($tree);
-  // $c->getObjectsFromTree($tree);
-  $ob = $c->getArchivalObject(84337);
-  var_dump($c->getDigitalObjectsFromArchivalObject($ob));
-
-  echo "TEST DONE!\n";
 ?>
