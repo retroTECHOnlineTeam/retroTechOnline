@@ -19,6 +19,14 @@ class ArchiveSpaceApi {
     echo "Guzzle client created.\n";
   }
 
+  private function _clean_description($input) {
+    if (empty($input)) {
+      return 'Visit the retroTECH lab to learn more.';
+    } else  {
+      return $input;
+    }
+  }
+
   public function authenticate() {
     try {
       // sanitize this?
@@ -165,7 +173,6 @@ class ArchiveSpaceApi {
       echo("Object ".$i.":\n");
       echo($obj['title']."\n");
       echo($obj['digital_object_id']."\n");
-      //var_dump($obj);
       $i++;
     }
   }
@@ -178,9 +185,9 @@ class ArchiveSpaceApi {
     $ao = $cli->getArchivalObjectFromDigitalObject($do);
     $data = array("entry_name"        => $ao['display_string'],
                   "entry_date"        => $ao['dates'][0]['expression'],
-                  "entry_description" => $do['notes'],
+                  "entry_description" => (empty($do['notes']) ? 'Visit to learn more': $do['notes']),
                   "emulation_url"     => $do['digital_object_id']);
-    var_dump($data);
+    // var_dump($data);
     return $data;
   }
 }

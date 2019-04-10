@@ -22,6 +22,6 @@ Route::get('/entry', function () {
 Route::get('/{id}', function ($id) {
 
 	$cli = new ArchiveSpaceApi();
-	$d = $cli->serveASpaceData($id);
-    return view('entry', $d);
+	$data = $cli->serveASpaceData($id);
+    return view('entry', ['data' => $data]);
 });

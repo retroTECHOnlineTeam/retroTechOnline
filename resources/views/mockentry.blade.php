@@ -1,19 +1,19 @@
 @extends('layout')
 
 @section('title')
-	{{ $data['entry_name'] }} - RetroTechOnline
+	Entry Name - RetroTechOnline
 @endsection
 
 @section('entry_name')
-	{{ $data['entry_name'] }}
+	Entry Name
 @endsection
 
 @section('entry_date')
-	{{ $data['entry_date'] }}
+	1/1/2001
 @endsection
 
 @section('entry_description')
-	{{ $data['entry_description'] }}
+	Nulla ut nisi ea nostrud est fugiat deserunt et duis elit do. Cillum ut in pariatur consequat est culpa sint in do ullamco anim dolore anim sed veniam. Lorem ipsum do eiusmod non exercitation nisi elit in ut aute sint. Consectetur in labore nisi ut in sit ut ut ut ullamco ut sunt dolor. Esse officia enim sed mollit sint quis incididunt sed cillum qui. Nulla cupidatat mollit sint enim aute irure officia mollit eiusmod dolore consectetur nisi excepteur deserunt excepteur. Velit reprehenderit pariatur occaecat non nostrud sint sunt veniam reprehenderit deserunt sit in esse deserunt dolor labore dolore veniam. Lorem ipsum culpa dolore mollit in in ea culpa laborum mollit ut non occaecat excepteur eu consequat.
 @endsection
 
 @section('history_donor')
