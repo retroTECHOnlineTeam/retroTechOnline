@@ -20,7 +20,9 @@ mix.styles([
     'resources/css/header.css',
     'resources/css/main-menu.css',
     'resources/css/search-bar.css',
-    'resources/css/site-logo.css'
+    'resources/css/site-logo.css',
+    'resources/gt/css/*',
+    'resources/css/test2.css'
 ], 'public/css/all.css');
 
 
@@ -35,8 +37,12 @@ mix.scripts([
     'resources/js/main-menu.js',
     'resources/js/mega-menu.js',
     'resources/js/ready.min.js',
-    'resources/js/search-bar.js'
+    'resources/js/search-bar.js',
+    'resources/gt/js/*'
 ], 'public/js/all.js');
 
 mix.copyDirectory('resources/fonts', 'public/fonts');
-mix.copyDirectory('resources/assets', 'public/assets');
+mix.copyDirectory([
+    'resources/assets',
+    'resources/gt/images/*'
+], 'public/assets');

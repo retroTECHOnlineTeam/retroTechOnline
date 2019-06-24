@@ -1,0 +1,125 @@
+/**
+ * Site search in primary-menu bar
+ */
+#site-search {
+  float: right;
+  position: relative;
+  z-index: 50;
+}
+
+#site-search-container-switch {
+  background: #545454;
+}
+
+#site-search-container-switch {
+  /*color: #FFFFFF;*/
+  cursor: pointer;
+  display: block;
+  font-size: .88em;
+  font-weight: 500;
+  letter-spacing: .08em;
+  line-height: 1.7;
+  padding: 6px 18px 6px 34px;
+  text-transform: uppercase;
+}
+
+#site-search-container-switch:before {
+  color: #FFFFFF;
+  content: '\f002';
+  display: inline-block;
+  font-family: "FontAwesome";
+  font-size: 1.3em;
+  font-style: normal;
+  font-weight: normal;
+  left: 12px;
+  line-height: 1;
+  position: absolute;
+  text-decoration: none;
+  top: 8px;
+}
+
+#site-search-container-switch:link,
+#site-search-container-switch:visited {
+  text-decoration: none;
+}
+
+#site-search-container {
+  background-color: #545454;
+  border-radius: 0 0 5px 5px;
+  padding: 10px;
+  position: absolute;
+  right: 0;
+  top: 100%;
+}
+
+#search-local input {
+  width: 12.5em;
+}
+
+/* Search Results table for Google CSE (if using google_cse module),
+ * will not be updated except for accessibility fixes.
+*/
+
+.gsc-table-result td {
+  background: none;
+}
+
+.gsc-webResult.gsc-result, .gsc-results .gsc-imageResult {
+  border-width: 0 0 1px 0;
+  border-color: #ccc;
+  background-color: #FFFFFF;
+}
+
+.gsc-resultsbox-visible td {
+  background: none;
+}
+
+/* Hide all images from search results */
+.gs-promotion-image-cell {
+  display: none !important;
+}
+
+.gs-result .gs-title,
+.gs-result .gs-title * {
+  color: #004f9f !important;
+  text-decoration: none !important;
+  font-weight: 600 !important;
+  font-size: 1.2em !important;
+  height: 2em !important;
+}
+
+.gs-result .gs-title:hover,
+.gs-result .gs-title:hover * {
+  color: #1879db !important;
+}
+
+.gs-webResult div.gs-visibleUrl,
+.gs-imageResult div.gs-visibleUrl {
+  color: #545454 !important;
+}
+
+.gsc-control-cse .gsc-table-result {
+  font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial", sans-serif!important;
+  font-size: 1.2em!important;
+}
+
+.gsc-results .gsc-cursor-box .gsc-cursor-page {
+  border-color: transparent !important;
+  background-color: transparent !important;
+  color: #004f9f !important;
+  font-size: 1.2em !important;
+  font-weight: 600 !important;
+}
+
+.gsc-results .gsc-cursor-box .gsc-cursor-page:hover {
+  color: #1879db !important;
+  text-decoration: none !important;
+}
+
+td.gcsc-branding-text div.gcsc-branding-text {
+  display: none !important;
+}
+
+.gcsc-branding {
+  display: none !important;
+}
