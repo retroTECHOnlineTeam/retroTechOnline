@@ -43,7 +43,8 @@
         ],
         "files": [
             "app/ArchiveSpaceApi.php",
-            "api_creds_prod.php"
+            "api_creds_prod.php",
+            "app/ImageLookup.php"
         ]
     },
     "autoload-dev": {

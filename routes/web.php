@@ -23,20 +23,20 @@ Route::get('/2l', function () {
     return view('template2left');
 });
 
-Route::get('/entry', function () {
-    return view('entry');
-});
-
 Route::get('/cooking-mama', function () {
 
     $cli = new ArchiveSpaceApi();
     $data = $cli->serveASpaceDataFromAO(86914);
-    return view('template3', ['data' => $data]);
+    $emulation_img = ImageLookup::lookupEmulationImg(86914);
+    $history_img = ImageLookup::lookupHistoryImg(86914);
+    return view('template3', ['data' => $data, 'emulation' => $emulation_img, 'history' => $history_img]);
 });
 
 Route::get('/{id}', function ($id) {
 
 	$cli = new ArchiveSpaceApi();
 	$data = $cli->serveASpaceDataFromAO($id);
-    return view('template3', ['data' => $data]);
+    $emulation_img = ImageLookup::lookupEmulationImg($id); //if exists
+    $history_img = ImageLookup::lookupHistoryImg($id); //if exists
+    return view('template2', ['data' => $data, 'emulation' => $emulation_img, 'history' => $history_img]);
 });
