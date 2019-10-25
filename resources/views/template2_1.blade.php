@@ -17,7 +17,16 @@
         <div class="body-text"><p>{{ $data['entry_description'] }}</p></div>
     </div>
 
-    @include('t2_hist_lab')
+    <div class="l-center l-content-container paragraph paragraph--type--two-up-layout paragraph--view-mode--default">
+      <section class="l-three-up">
+        <div class="two-up-layout--content-first">
+          @include('emulation')
+        </div>
+        <div class="two-up-layout--content-second">
+          @include('lab')
+        </div>
+      </section>
+    </div>
 
     @include('footer')
 </body>

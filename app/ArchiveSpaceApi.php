@@ -63,38 +63,6 @@ class ArchiveSpaceApi {
     }
   }
 
-  public function getResource(int $record_id, bool $get_tree) {
-    if ($get_tree) {
-      $url = BASE_URI . '/repositories/' . REPO_ID . '/resources/' . $record_id . '/tree';
-    } else {
-      $url = BASE_URI . '/repositories/' . REPO_ID . '/resources/' . $record_id;
-    }
-
-
-    try {
-      $response = $this->client->request('GET', $url, [
-        'headers' => ['X-ArchivesSpace-Session' => $this->session_id],
-        'on_stats' => function (GuzzleHttp\TransferStats $stats) use (&$url) {
-          $url = $stats->getEffectiveUri();
-        }]);
-    } catch (GuzzleHttp\Exception\ClientException $e) {
-      //echo "There was a problem with your request.\n";
-      //echo 'HTTP request URL: ' . $url . "\n";
-      //echo 'HTTP response status: ' . $e->getResponse()->getStatusCode() . "\n";
-      //echo 'Exception: ' . $e->getMessage() . "\n";
-      die(); // make this a retry with a recurs limit
-    }
-
-    if ($response->getStatusCode() == 200) {
-      //echo "Successfully retrieved resource!\n";
-      $data = json_decode($response->getBody(), true);
-      //var_dump($data); 
-      return($data);
-    } else {
-      throw new Error("Something went wrong with your request. Unable to get resource.\n");
-    }
-  }
-
   public function getDigitalObject(int $digitalobject_id) {
     $url = BASE_URI . '/repositories/' . REPO_ID . '/digital_objects/' . $digitalobject_id;
 
@@ -183,6 +151,36 @@ class ArchiveSpaceApi {
     }
   }
 
+  public function getResourceById(int $id, bool $get_tree = false) {
+    if ($get_tree) {
+      $url = BASE_URI . '/repositories/' . REPO_ID . '/resources/' . $id . '/tree';
+    } else {
+      $url = BASE_URI . '/repositories/' . REPO_ID . '/resources/' . $id;
+    }
+
+    try {
+      $response = $this->client->request('GET', $url, [
+        'headers' => ['X-ArchivesSpace-Session' => $this->session_id],
+        'on_stats' => function (GuzzleHttp\TransferStats $stats) use (&$url) {
+          $url = $stats->getEffectiveUri();
+        }]);
+    } catch (GuzzleHttp\Exception\ClientException $e) {
+      echo "There was a problem with your request.\n";
+      //echo 'HTTP request URL: ' . $url . "\n";
+      //echo 'HTTP response status: ' . $e->getResponse()->getStatusCode() . "\n";
+      echo 'Exception: ' . $e->getMessage() . "\n";
+      die(); // make this a retry with a recurs limit
+    }
+
+    if ($response->getStatusCode() == 200) {
+      echo "Successfully retrieved container!\n";
+      $data = json_decode($response->getBody(), true);
+      return($data);
+    } else {
+      throw new Error("Something went wrong with your request. Unable to get top container.\n");
+    }
+  }
+
   public function getAgentById(int $id) {
     $url = BASE_URI . '/agents/people/' . $id;
 
@@ -239,6 +237,23 @@ class ArchiveSpaceApi {
                   "history_url"     => $history_obj['external_documents'][0]['location'],
                   "agent_name"        => ArchiveSpaceApi::_formatName($agent['title']));
     return $data;
+  }
+
+  public function serveASpaceDataFromResource(int $r_id) {
+    $cli = new ArchiveSpaceApi();
+    $cli->authenticate();
+    $resource = $cli->getResourceById($r_id);
+    $resource_children = $cli->getObjectsFromTree($cli->getResourceById($r_id, true));
+    //$agent = $cli->getAgentById(ArchiveSpaceApi::_getIDFromUrl($ao['linked_agents'][0]['ref']));
+
+    $data = array("entry_name"        => $resource['title'],
+                  "entry_title"       => $resource['title'],
+                  "entry_date"        => $resource['dates'][0]['expression'],
+                  "entry_description" => (empty($resource['notes'][1]['subnotes'][0]['content']) ? 'Visit to learn more': $resource['notes'][1]['subnotes'][0]['content']),
+                  "software_url"     => (empty($resource['external_documents'][0]['location'])) ? 'Link coming soon': $resource['external_documents'][0]['location']);
+    //var_dump($resource_children);
+    return $data;
+
   }
 }
 

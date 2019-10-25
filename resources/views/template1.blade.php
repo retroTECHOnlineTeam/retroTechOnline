@@ -16,6 +16,8 @@
         <div class="body-text"><p>Overall description text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sit amet libero ante. Vivamus ut ligula suscipit, eleifend mi ac, elementum eros. Proin hendrerit magna sit amet orci iaculis vehicula. Proin in augue consequat, condimentum augue vitae, iaculis nisl. </p></div>
     </div>
 
+    {{-- use a foreach to loop through each block --}}
+
 
     @include('twoupright')
     @include('twoupleft')

@@ -5,6 +5,7 @@ class ImageLookup {
     public static function getEmulationLookupArray() {
         return array(
             86914 => ['cooking-mama-cover.jpeg', 'Cooking Mama: Food Fight Start Screen'],
+            1765 => ['VantagePoint.jpg', 'VantagePoint'],
         );
     }
 

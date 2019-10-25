@@ -11,13 +11,25 @@
     @include('breadcrumbs')
 
     <h2 class = "headline-band__title l-center">{{ $data['entry_title'] }}</h2>
-    <h3 class="headline-band__title l-center">{{ $data['agent_name'] }}, {{ $data['entry_date'] }}</h3>
+    <h3 class="headline-band__title l-center">{{ $data['entry_date'] }}</h3>
 
     <div class="l-center l-content-container paragraph paragraph--type--text paragraph--view-mode--default">
         <div class="body-text"><p>{{ $data['entry_description'] }}</p></div>
     </div>
 
-    @include('threeup')
+    <div class="l-center l-content-container paragraph paragraph--type--two-up-layout paragraph--view-mode--default">
+      <section class="l-three-up">
+        <div class="two-up-layout--content-first">
+          @include('oralhistory')
+        </div>
+        <div class="two-up-layout--content-first">
+          @include('oralhistory2')
+        </div>
+        <div class="two-up-layout--content-first">
+          @include('software')
+        </div>
+      </section>
+    </div>
 
     @include('footer')
 </body>
