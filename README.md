@@ -3,7 +3,7 @@
 
 ## Getting Started
 
-For development or deployment, follow the instructions below
+For development or deployment, follow the instructions below.
 
 
 ### Prerequisites
@@ -24,8 +24,8 @@ composer update
 ```
 
 
-2. Make sure the ArchiveSpace API creds are stored and available in a file named api_creds.php in the base directory structured like the example:
-** Note this is not stored in VC and must be manually managed. **
+2. Make sure the ArchiveSpace API creds are stored and available in a file named "api_creds_prod.php" in the base directory structured like the example:
+** Note this is not stored in VC and must be manually created/managed. **
 
 ```
 <?php 
@@ -49,25 +49,24 @@ npm run production
 ```
 php artisan serve
 ```
-
-End with an example of getting some data out of the system or using it for a little demo
+***
 
 ## Overall System Diagram
-![System Diagram]('RetroTech Online System Diagram.jpg')
+![System Diagram](RetroTech Online System Diagram.png)
 
 ### Panel Types and Contents
 - Oral History:
-    oral history subject,
-    OHMS link,
-    screenshot,
+    - oral history subject,
+    - OHMS link,
+    - screenshot,
 - Emulation:
-    EaaS link,
-    software screenshot,
+    - EaaS link,
+    - software screenshot,
 - Live Software:
-    OIT link,
-    software screenshot
+    - OIT link,
+    - software screenshot
 - Lab Info:
-    lab photo
+    - lab photo
 
 ## Further Documentation
 - [Laravel 5.7 documentation](https://laravel.com/docs/5.7)
