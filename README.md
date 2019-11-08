@@ -3,22 +3,29 @@
 
 ## Getting Started
 
+For development or deployment, follow the instructions below
 
 
 ### Prerequisites
 
-- PHP
-- node/npm
-
-```
-Give examples
-```
+- [PHP 7.2](https://www.php.net/)
+- [Composer Dependency Manager](https://getcomposer.org/)
+- [node/npm](https://www.npmjs.com/)
 
 ### Setup
 
 A step by step series of examples that tell you how to get a development env running
 
-1. Make sure the ArchiveSpace API creds are stored and available in a file named api_creds.php in the base directory structured like so:
+1. Install [Laravel](https://laravel.com/docs/5.7) using Composer, then run update from the base directory of the project.
+
+```
+composer global require "laravel/installer"
+composer update
+```
+
+
+2. Make sure the ArchiveSpace API creds are stored and available in a file named api_creds.php in the base directory structured like the example:
+** Note this is not stored in VC and must be manually managed. **
 
 ```
 <?php 
@@ -31,7 +38,7 @@ define('REPO_ID', 2);
 ?>
 ```
 
-2. Compile assets
+2. Compile assets using Webpack/Laravel mix.
 
 ```
 npm run production
@@ -45,19 +52,24 @@ php artisan serve
 
 End with an example of getting some data out of the system or using it for a little demo
 
-# Overall System Diagram
-![System Diagram](RetroTech Online System Diagram.jpg)
+## Overall System Diagram
+![System Diagram]('RetroTech Online System Diagram.jpg')
 
-## Panel Types and Contents
-- Oral History
-    -- oral history subject
-    -- OHMS link
-    -- screenshot
-- Emulation
-    -- EaaS link
-    -- software screenshot
-- Live Software
-    -- OIT link
-    -- software screenshot
-- Lab Info
-    -- lab photo
+### Panel Types and Contents
+- Oral History:
+    oral history subject,
+    OHMS link,
+    screenshot,
+- Emulation:
+    EaaS link,
+    software screenshot,
+- Live Software:
+    OIT link,
+    software screenshot
+- Lab Info:
+    lab photo
+
+## Further Documentation
+- [Laravel 5.7 documentation](https://laravel.com/docs/5.7)
+- [Laracast tutorial videos](https://laracasts.com/series/laravel-6-from-scratch)
+- [ArchiveSpace API documentation](https://archivesspace.github.io/archivesspace/api/)
