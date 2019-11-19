@@ -68,6 +68,7 @@ php artisan serve
 - Lab Info:
     - lab photo
 
+***
 ## Troubleshooting
 ### Dependency Issues
 - To update composer to the latest version:
@@ -101,6 +102,9 @@ composer update
 php artisan serve
 
 ```
+### Adding CSS or JS files
+- To include new css files into the app build, make sure to include the filepath in *webpack.mix.js*
+
 ## Further Documentation
 - [Laravel 5.7 documentation](https://laravel.com/docs/5.7)
 - [Laracast tutorial videos](https://laracasts.com/series/laravel-6-from-scratch)
