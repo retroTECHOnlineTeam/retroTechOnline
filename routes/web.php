@@ -15,9 +15,18 @@ Route::get('/cooking-mama', function () {
 
     $cli = new ArchiveSpaceApi();
     $data = $cli->serveASpaceDataFromAO(86914);
+    $cli->authenticate();
+    $history_obj = $cli->getDigitalObject(ArchiveSpaceApi::_getIDFromUrl($data['instances'][1]['digital_object']['ref']));
+    $emulation_obj =$cli->getDigitalObject(ArchiveSpaceApi::_getIDFromUrl($data['instances'][0]['digital_object']['ref']));
+    $agent = $cli->getAgentById(ArchiveSpaceApi::_getIDFromUrl($data['linked_agents'][0]['ref']));
+    $data2 = Data::extractEntryData($data);
+    $data3 = Data::extractOralHistoryData($history_obj);
+    $data4 = Data::extractEmulationData($emulation_obj);
+    $all_data = array_merge($data2, $data3, $data4, array("agent_name" => $agent["title"]));
+    // var_dump($all_data);
     $emulation_img = ImageLookup::lookupEmulationImg(86914);
     $history_img = ImageLookup::lookupHistoryImg(86914);
-    return view('template3_1', ['data' => $data, 'emulation' => $emulation_img, 'history' => $history_img]);
+    return view('template3_1', ['data' => $all_data, 'emulation' => $emulation_img, 'history' => $history_img]);
 });
 
 Route::get('/yeji', function () {

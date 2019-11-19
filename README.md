@@ -38,7 +38,7 @@ define('REPO_ID', 2);
 ?>
 ```
 
-2. Compile assets using Webpack/Laravel mix.
+2. Compile assets using Webpack/Laravel mix. This needs to be run everytime there are css changes.
 
 ```
 npm run production
@@ -80,7 +80,27 @@ composer self-update
 ```
 composer update
 ```
+### Adding New Classes
+- To create new classes and make them available throughout the app, add the class to the composer autoload (see below), then run composer and restart the server.
 
+```
+"autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        },
+        "files": [
+            "app/ArchiveSpaceApi.php",
+            "api_creds_prod.php",
+            "app/Data.php",
+            "path_to_your_class.php"
+        ]
+    },
+```
+```
+composer update
+php artisan serve
+
+```
 ## Further Documentation
 - [Laravel 5.7 documentation](https://laravel.com/docs/5.7)
 - [Laracast tutorial videos](https://laracasts.com/series/laravel-6-from-scratch)

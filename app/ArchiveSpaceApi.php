@@ -7,7 +7,7 @@ class ArchiveSpaceApi {
   var $client;
   var $session_id;
 
-  private static function _getIDFromUrl(string $url) {
+  static function _getIDFromUrl(string $url) {
     $exploded_url = explode('/', $url);
     $len = sizeof($exploded_url);
     return $exploded_url[$len - 1];
@@ -45,12 +45,7 @@ class ArchiveSpaceApi {
 
       //echo "Sending request to " . $url . "\n";
     } catch (GuzzleHttp\Exception\ServerException $e) {
-      //echo "The server is unavailable.\n";
     } catch (GuzzleHttp\Exception\ClientException $e) {
-      //echo "There was a problem with your request.\n";
-      //echo 'HTTP request URL: ' . $url . "\n";
-      //echo 'HTTP response status: ' . $e->getResponse()->getStatusCode() . "\n";
-      //echo 'Exception: ' . $e->getMessage() . "\n";
       die(); // use retry with recurs limit
     }
     if ($response->getStatusCode() == 200) {
@@ -73,10 +68,7 @@ class ArchiveSpaceApi {
           $url = $stats->getEffectiveUri();
         }]);
     } catch (GuzzleHttp\Exception\ClientException $e) {
-      //echo "There was a problem with your request.\n";
-      //echo 'HTTP request URL: ' . $url . "\n";
-      //echo 'HTTP response status: ' . $e->getResponse()->getStatusCode() . "\n";
-      //echo 'Exception: ' . $e->getMessage() . "\n";
+        echo ("Unable to reach server: \n" . $e);
       die(); // make this a retry with a recurs limit
     }
 
@@ -100,11 +92,7 @@ class ArchiveSpaceApi {
           $url = $stats->getEffectiveUri();
         }]);
     } catch (GuzzleHttp\Exception\ClientException $e) {
-      //echo "There was a problem with your request.\n";
-      //echo 'HTTP request URL: ' . $url . "\n";
-      //echo 'HTTP response status: ' . $e->getResponse()->getStatusCode() . "\n";
-      //echo 'Exception: ' . $e->getMessage() . "\n";
-      die(); // make this a retry with a recurs limit
+        echo ("Unable to reach server:\n" . $e);
     }
 
     if ($response->getStatusCode() == 200) {
@@ -144,9 +132,9 @@ class ArchiveSpaceApi {
   public function outputDigitalObjects(array $object_array) {
     $i = 0;
     foreach ($object_array as $obj) {
-      //echo("Object ".$i.":\n");
-      //echo($obj['title']."\n");
-      //echo($obj['digital_object_id']."\n");
+      echo("Object ".$i.":\n");
+      echo($obj['title']."\n");
+      echo($obj['digital_object_id']."\n");
       $i++;
     }
   }
@@ -191,10 +179,6 @@ class ArchiveSpaceApi {
           $url = $stats->getEffectiveUri();
         }]);
     } catch (GuzzleHttp\Exception\ClientException $e) {
-      //echo "There was a problem with your request.\n";
-      //echo 'HTTP request URL: ' . $url . "\n";
-      //echo 'HTTP response status: ' . $e->getResponse()->getStatusCode() . "\n";
-      //echo 'Exception: ' . $e->getMessage() . "\n";
       die(); // make this a retry with a recurs limit
     }
 
@@ -225,18 +209,18 @@ class ArchiveSpaceApi {
     $cli->authenticate();
     // Fetch archival object from id given as route url parameter
     $ao = $cli->getArchivalObject($ao_id);
-    $history_obj = $cli->getDigitalObject(ArchiveSpaceApi::_getIDFromUrl($ao['instances'][1]['digital_object']['ref']));
-    $software_obj =$cli->getDigitalObject(ArchiveSpaceApi::_getIDFromUrl($ao['instances'][0]['digital_object']['ref']));
-    $agent = $cli->getAgentById(ArchiveSpaceApi::_getIDFromUrl($ao['linked_agents'][0]['ref']));
+    //$history_obj = $cli->getDigitalObject(ArchiveSpaceApi::_getIDFromUrl($ao['instances'][1]['digital_object']['ref']));
+    //$software_obj =$cli->getDigitalObject(ArchiveSpaceApi::_getIDFromUrl($ao['instances'][0]['digital_object']['ref']));
+    //$agent = $cli->getAgentById(ArchiveSpaceApi::_getIDFromUrl($ao['linked_agents'][0]['ref']));
 
-    $data = array("entry_name"        => $ao['display_string'],
-                  "entry_title"       => $ao['title'],
-                  "entry_date"        => $ao['dates'][0]['expression'],
-                  "entry_description" => (empty($ao['notes'][0]['subnotes'][0]['content']) ? 'Visit to learn more': $ao['notes'][0]['subnotes'][0]['content']),
-                  "emulation_url"     => $software_obj['external_documents'][0]['location'],
-                  "history_url"     => $history_obj['external_documents'][0]['location'],
-                  "agent_name"        => ArchiveSpaceApi::_formatName($agent['title']));
-    return $data;
+     // $data = array("entry_name"        => $ao['display_string'],
+     //              "entry_title"       => $ao['title'],
+     //              "entry_date"        => (empty($ao['dates'][0]['expression']) ? 'test': $ao['dates'][0]['expression']),
+     //              "entry_description" => (empty($ao['notes'][0]['subnotes'][0]['content']) ? 'Visit to learn more': $ao['notes'][0]['subnotes'][0]['content']),
+     //              "emulation_url"     => $software_obj['external_documents'][0]['location'],
+     //              "history_url"     => $history_obj['external_documents'][0]['location'],
+     //              "agent_name"        => ArchiveSpaceApi::_formatName($agent['title']));
+    return $ao;
   }
 
   public function serveASpaceDataFromResource(int $r_id) {

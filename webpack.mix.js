@@ -21,8 +21,7 @@ mix.styles([
     'resources/css/main-menu.css',
     'resources/css/search-bar.css',
     'resources/css/site-logo.css',
-    'resources/gt/css/*',
-    'resources/css/test2.css'
+    'resources/css/bootstrap.css'
 ], 'public/css/all.css');
 
 
@@ -44,5 +43,4 @@ mix.scripts([
 mix.copyDirectory('resources/fonts', 'public/fonts');
 mix.copyDirectory([
     'resources/assets',
-    'resources/gt/images/*'
 ], 'public/assets');
