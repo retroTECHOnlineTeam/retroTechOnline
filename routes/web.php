@@ -15,15 +15,15 @@ Route::get('/cooking-mama', function () {
 
     $cli = new ArchiveSpaceApi();
     $data = $cli->serveASpaceDataFromAO(86914);
-    $cli->authenticate();
+    $cli->authenticate(); // must authenticate here again to make more calls to Aspace server
     $history_obj = $cli->getDigitalObject(ArchiveSpaceApi::_getIDFromUrl($data['instances'][1]['digital_object']['ref']));
     $emulation_obj =$cli->getDigitalObject(ArchiveSpaceApi::_getIDFromUrl($data['instances'][0]['digital_object']['ref']));
     $agent = $cli->getAgentById(ArchiveSpaceApi::_getIDFromUrl($data['linked_agents'][0]['ref']));
+    // TODO clean this up
     $data2 = Data::extractEntryData($data);
     $data3 = Data::extractOralHistoryData($history_obj);
     $data4 = Data::extractEmulationData($emulation_obj);
     $all_data = array_merge($data2, $data3, $data4, array("agent_name" => $agent["title"]));
-    // var_dump($all_data);
     $emulation_img = ImageLookup::lookupEmulationImg(86914);
     $history_img = ImageLookup::lookupHistoryImg(86914);
     return view('template3_1', ['data' => $all_data, 'emulation' => $emulation_img, 'history' => $history_img]);
@@ -43,10 +43,17 @@ Route::get('/ribbit', function () {
 
     $cli = new ArchiveSpaceApi();
     $data = $cli->serveASpaceDataFromResource(1753);
+    $mapped_data = Data::extractResourceData($data);
+    $cli->authenticate();
+    $history_obj = $cli->getDigitalObject(5084);
+    //$history_data = Data::extractOralHistoryData($history); TODO
+    $emulation_obj = $cli->getDigitalObject(5080);
+    //$emulation_data = Data::extractEmulationData($emulation_obj); TODO
     //$emulation_img = ImageLookup::lookupEmulationImg(86914);
     //$history_img = ImageLookup::lookupHistoryImg(86914);
     //return view('template3', ['data' => $data, 'emulation' => $emulation_img, 'history' => $history_img]);
-    var_dump($data);
+    var_dump($mapped_data);
+    var_dump($emulation_obj);
     //return view('template3_1', ['data' => $data,]);
 });
 

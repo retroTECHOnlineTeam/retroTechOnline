@@ -209,17 +209,6 @@ class ArchiveSpaceApi {
     $cli->authenticate();
     // Fetch archival object from id given as route url parameter
     $ao = $cli->getArchivalObject($ao_id);
-    //$history_obj = $cli->getDigitalObject(ArchiveSpaceApi::_getIDFromUrl($ao['instances'][1]['digital_object']['ref']));
-    //$software_obj =$cli->getDigitalObject(ArchiveSpaceApi::_getIDFromUrl($ao['instances'][0]['digital_object']['ref']));
-    //$agent = $cli->getAgentById(ArchiveSpaceApi::_getIDFromUrl($ao['linked_agents'][0]['ref']));
-
-     // $data = array("entry_name"        => $ao['display_string'],
-     //              "entry_title"       => $ao['title'],
-     //              "entry_date"        => (empty($ao['dates'][0]['expression']) ? 'test': $ao['dates'][0]['expression']),
-     //              "entry_description" => (empty($ao['notes'][0]['subnotes'][0]['content']) ? 'Visit to learn more': $ao['notes'][0]['subnotes'][0]['content']),
-     //              "emulation_url"     => $software_obj['external_documents'][0]['location'],
-     //              "history_url"     => $history_obj['external_documents'][0]['location'],
-     //              "agent_name"        => ArchiveSpaceApi::_formatName($agent['title']));
     return $ao;
   }
 
@@ -227,16 +216,16 @@ class ArchiveSpaceApi {
     $cli = new ArchiveSpaceApi();
     $cli->authenticate();
     $resource = $cli->getResourceById($r_id);
-    $resource_children = $cli->getObjectsFromTree($cli->getResourceById($r_id, true));
+    
+    //$resource_children = $cli->getObjectsFromTree($cli->getResourceById($r_id, true));
     //$agent = $cli->getAgentById(ArchiveSpaceApi::_getIDFromUrl($ao['linked_agents'][0]['ref']));
 
-    $data = array("entry_name"        => $resource['title'],
-                  "entry_title"       => $resource['title'],
-                  "entry_date"        => $resource['dates'][0]['expression'],
-                  "entry_description" => (empty($resource['notes'][1]['subnotes'][0]['content']) ? 'Visit to learn more': $resource['notes'][1]['subnotes'][0]['content']),
-                  "software_url"     => (empty($resource['external_documents'][0]['location'])) ? 'Link coming soon': $resource['external_documents'][0]['location']);
-    //var_dump($resource_children);
-    return $data;
+    // $data = array("entry_name"        => $resource['title'],
+    //               "entry_title"       => $resource['title'],
+    //               "entry_date"        => $resource['dates'][0]['expression'],
+    //               "entry_description" => (empty($resource['notes'][1]['subnotes'][0]['content']) ? 'Visit to learn more': $resource['notes'][1]['subnotes'][0]['content']),
+    //               "software_url"     => (empty($resource['external_documents'][0]['location'])) ? 'Link coming soon': $resource['external_documents'][0]['location']);
+    return $resource;
 
   }
 }

@@ -38,7 +38,7 @@ define('REPO_ID', 2);
 ?>
 ```
 
-2. Compile assets using Webpack/Laravel mix. This needs to be run everytime there are css changes.
+2. Compile assets using Webpack/Laravel mix. This needs to be run everytime there are css or js changes.
 
 ```
 npm run production
@@ -70,6 +70,12 @@ php artisan serve
 
 ***
 ## Troubleshooting
+### Clearing the cache
+- If you get an error about a missing session, try stopping the server and clearing the cache
+
+```
+php artisan config:cache
+```
 ### Dependency Issues
 - To update composer to the latest version:
 
@@ -82,7 +88,7 @@ composer self-update
 composer update
 ```
 ### Adding New Classes
-- To create new classes and make them available throughout the app, add the class to the composer autoload (see below), then run composer and restart the server.
+- To create new classes and make them available throughout the app, add the class to **composer.json** autoload (see below), then run composer and restart the server.
 
 ```
 "autoload": {
@@ -103,7 +109,7 @@ php artisan serve
 
 ```
 ### Adding CSS or JS files
-- To include new css files into the app build, make sure to include the filepath in *webpack.mix.js*
+- To include new css files into the app build, make sure to include the filepath in **webpack.mix.js**
 
 ## Further Documentation
 - [Laravel 5.7 documentation](https://laravel.com/docs/5.7)

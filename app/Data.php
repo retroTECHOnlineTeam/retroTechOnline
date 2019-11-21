@@ -16,7 +16,8 @@ class Data {
     }
 
     public static function extractEntryData(array $data) {
-        $mapped_data = array("entry_name"        => $data['display_string'],
+        $mapped_data = array(
+                  "entry_name"        => $data['display_string'],
                   "entry_title"       => $data['title'],
                   "entry_date"        => (empty($data['dates'][0]['expression']) ? 'test': $data['dates'][0]['expression']),
                   "entry_description" => (empty($data['notes'][0]['subnotes'][0]['content']) ? 'Visit to learn more': $data['notes'][0]['subnotes'][0]['content']));
@@ -27,6 +28,16 @@ class Data {
         $mapped_data = array(
                   "emulation_url"     => $data['external_documents'][0]['location']);
         return $mapped_data;
+    }
+
+    public static function extractResourceData(array $data) {
+      $mapped_data = array(
+                  "entry_name"        => $data['title'],
+                  "entry_title"       => $data['title'],
+                  "entry_date"        => $data['dates'][0]['expression'],
+                  "entry_description" => (empty($data['notes'][1]['subnotes'][0]['content']) ? 'Visit to learn more': $data['notes'][1]['subnotes'][0]['content']),
+                  "software_url"     => (empty($data['external_documents'][0]['location'])) ? 'Link coming soon': $data['external_documents'][0]['location']);
+      return $mapped_data;
     }
 }
 
