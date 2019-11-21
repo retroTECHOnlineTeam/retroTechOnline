@@ -2,7 +2,13 @@
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Request;
+/**
+* ArchiveSpaceApi is a class for getting data from the ArchiveSpace server
 
+* Authentication note: See Readme about setting up the api credentials
+*
+* @author Maura Gerke 
+*/
 class ArchiveSpaceApi {
   var $client;
   var $session_id;
@@ -161,7 +167,7 @@ class ArchiveSpaceApi {
     }
 
     if ($response->getStatusCode() == 200) {
-      echo "Successfully retrieved container!\n";
+      //echo "Successfully retrieved container!\n";
       $data = json_decode($response->getBody(), true);
       return($data);
     } else {
@@ -183,7 +189,7 @@ class ArchiveSpaceApi {
     }
 
     if ($response->getStatusCode() == 200) {
-      //echo "Successfully retrieved archival object!\n";
+      //echo "Successfully retrieved agent!\n";
       $data = json_decode($response->getBody(), true);
       return($data);
     } else {
@@ -216,15 +222,6 @@ class ArchiveSpaceApi {
     $cli = new ArchiveSpaceApi();
     $cli->authenticate();
     $resource = $cli->getResourceById($r_id);
-    
-    //$resource_children = $cli->getObjectsFromTree($cli->getResourceById($r_id, true));
-    //$agent = $cli->getAgentById(ArchiveSpaceApi::_getIDFromUrl($ao['linked_agents'][0]['ref']));
-
-    // $data = array("entry_name"        => $resource['title'],
-    //               "entry_title"       => $resource['title'],
-    //               "entry_date"        => $resource['dates'][0]['expression'],
-    //               "entry_description" => (empty($resource['notes'][1]['subnotes'][0]['content']) ? 'Visit to learn more': $resource['notes'][1]['subnotes'][0]['content']),
-    //               "software_url"     => (empty($resource['external_documents'][0]['location'])) ? 'Link coming soon': $resource['external_documents'][0]['location']);
     return $resource;
 
   }
