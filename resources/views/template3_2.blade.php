@@ -23,10 +23,10 @@
           @include('oralhistory')
         </div>
         <div class="two-up-layout--content-first">
-          @include('oralhistory2')
+          @include('software')
         </div>
         <div class="two-up-layout--content-first">
-          @include('software')
+          @include('oralhistory2')
         </div>
       </section>
     </div>

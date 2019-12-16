@@ -197,19 +197,6 @@ class ArchiveSpaceApi {
     }
   }
 
-  public function serveASpaceDataFromDO(int $do_id) {
-    $cli = new ArchiveSpaceApi();
-    $cli->authenticate();
-    // Fetch digital object from id given as route url parameter
-    $do = $cli->getDigitalObject($do_id);
-    $ao = $cli->getArchivalObjectFromDigitalObject($do);
-    $data = array("entry_name"        => $ao['display_string'],
-                  "entry_date"        => $ao['dates'][0]['expression'],
-                  "entry_description" => (empty($do['notes']) ? 'Visit to learn more': $do['notes']),
-                  "emulation_url"     => $do['digital_object_id']);
-    return $data;
-  }
-
   public function serveASpaceDataFromAO(int $ao_id) {
     $cli = new ArchiveSpaceApi();
     $cli->authenticate();

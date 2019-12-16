@@ -18,7 +18,7 @@
   
   <div class="l-center l-content-container small paragraph paragraph--type--cta-links paragraph--view-mode--default">
     <section class="cta-links">
-      <a href="{{ $data['history_url'] }}" target="_blank" class="chevron-link">View Oral History</a>
+      <a href="{{ $history_data2['history_url'] }}" target="_blank" class="chevron-link">View Oral History</a>
     </section>
   </div>
 </div>

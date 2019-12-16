@@ -13,7 +13,7 @@
                   <a class=" breadcrumb__link" href="/retrotech">retroTECH</a>
               </li>
           <li class="breadcrumb__item">
-                  <a class=" breadcrumb__link" href="">{{ $data['entry_title'] }}</a>
+                  <a class=" breadcrumb__link" href="">{{ empty($data['entry_title']) ? $data['title'] : $data['entry_title'] }}</a>
               </li>
         </ol>
   </nav>

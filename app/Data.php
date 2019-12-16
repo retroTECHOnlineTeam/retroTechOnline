@@ -7,7 +7,7 @@
 */
 class Data {
 
-    private static function _formatName(string $name) {
+    public static function formatName(string $name) {
         $newname = explode(', ', $name);
         $newname = array_reverse($newname);
         return implode(' ', $newname);
