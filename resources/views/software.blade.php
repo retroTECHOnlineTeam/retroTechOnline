@@ -10,7 +10,7 @@
   </div>
 
   <div>
-    <a href="{{ $data['software_url'] }}" target="_blank"><img srcset="../assets/{{ $emulation[0] }}" src="../assets/{{ $emulation[0] }}" class="img-container" alt="{{ $emulation[1] }}" typeof="foaf:Image" ></a>
+    <a href="{{ $data['software_url'] }}" target="_blank"><img srcset="{{ $data['emulation_img'] }}" src="{{ $data['emulation_img'] }}" class="img-container" typeof="foaf:Image" ></a>
   </div>
 
   <div class="l-center l-content-container small paragraph paragraph--type--cta-links paragraph--view-mode--default">

@@ -10,7 +10,7 @@
   </div>
     
   <div>    
-    <img srcset="../assets/retrotech-lab.jpg" src="../assets/retrotech-lab.jpg" width="880px" alt="Retrotech Lab" typeof="foaf:Image">
+    <a href="https://library.gatech.edu/retrotech" target="_blank"><img srcset="../assets/retrotech-lab.jpg" src="../assets/retrotech-lab.jpg" width="880px" alt="Retrotech Lab" typeof="foaf:Image"></a>
       <div class="l-center l-content-container paragraph paragraph--type--text paragraph--view-mode--default">
         <div class="body-text"><p>Visit the retroTECH lab to play this software on the original Game Boy Advance. </p></div>
       </div>

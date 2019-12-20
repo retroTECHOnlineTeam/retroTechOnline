@@ -6,6 +6,7 @@ require 'vendor/autoload.php';
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Request;
 
+// Depreciated
 class OHMSParser {
 	var $client;
 

@@ -6,24 +6,15 @@
 * @author Maura Gerke 
 */
 class Data {
-
+    /**
+    * Flip format of name from 'Last, First' to 'First Last'
+    *
+    * @param string of the form "Last, First"
+    */
     public static function formatName(string $name) {
         $newname = explode(', ', $name);
         $newname = array_reverse($newname);
         return implode(' ', $newname);
-
-    }
-
-    /** 
-    * Get oral history url from a digital object
-    * 
-    * OHMS url should be saved on the object in External Documents->Location
-    * @param array of data from a digial object
-    */
-    public static function extractOralHistoryData(array $data) {
-        $mapped_data = array(
-                  "history_url"     => $data['external_documents'][0]['location']);
-        return $mapped_data;
     }
 
     /** 
@@ -57,7 +48,7 @@ class Data {
     }
 
     /** 
-    * Get general entry data from a resource object
+    * Get emulation url from digital object
     * 
     * Emulation link should be saved on the object in External Documents->Location
     * @param array of json data from a digital object
@@ -67,6 +58,19 @@ class Data {
                   "emulation_url"     => $data['external_documents'][0]['location']);
         return $mapped_data;
     }
+
+    /** 
+    * Get oral history url from a digital object
+    * 
+    * OHMS url should be saved on the object in External Documents->Location
+    * @param array of data from a digial object
+    */
+    public static function extractOralHistoryData(array $data) {
+        $mapped_data = array(
+                  "history_url"     => $data['external_documents'][0]['location']);
+        return $mapped_data;
+    }
+
 }
 
 ?>

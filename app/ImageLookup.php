@@ -1,5 +1,6 @@
 <?php
 
+// Depreciated
 class ImageLookup {
 
     public static function getEmulationLookupArray() {

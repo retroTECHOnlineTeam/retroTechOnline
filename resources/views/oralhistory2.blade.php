@@ -10,7 +10,7 @@
   </div>
 
   <div>
-    <img srcset="../assets/{{ $history[0] }}" sizes="(min-width:880px) 50vw, 100vw." src="../assets/{{ $history[0] }}" alt="{{ $history[1] }}" typeof="foaf:Image" >
+    <a href="{{ $history_data2['history_url'] }}" target="_blank"><img srcset="{{ $data['history_img2'] }}" sizes="(min-width:880px) 50vw, 100vw." src="{{ $data['history_img2'] }}" typeof="foaf:Image" ></a>
     <div class="l-center l-content-container paragraph paragraph--type--text paragraph--view-mode--default">
         <div class="body-text"><p>Listen to the creator talk about the background and development of this software. </p></div>
     </div>

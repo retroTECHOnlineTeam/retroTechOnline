@@ -2,6 +2,7 @@
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Request;
+
 /**
 * ArchiveSpaceApi is a class for getting data from the ArchiveSpace server
 
@@ -13,20 +14,18 @@ class ArchiveSpaceApi {
   var $client;
   var $session_id;
 
+  /**
+  * Utility function to extract ArchiveSpace ID from a url
+  */
   static function _getIDFromUrl(string $url) {
     $exploded_url = explode('/', $url);
     $len = sizeof($exploded_url);
     return $exploded_url[$len - 1];
   }
 
-  private static function _formatName(string $name) {
-    $newname = explode(', ', $name);
-    $newname = array_reverse($newname);
-    return implode(' ', $newname);
-
-  }
-
-  # create Guzzle client for HTTP requests
+  /**
+  * Create a Guzzle client for HTTP requests
+  */
   public function __construct() {
     $this->client = new Client([
       // Base URI is used with relative requests
@@ -39,6 +38,9 @@ class ArchiveSpaceApi {
     //echo "Guzzle client created.\n";
   }
 
+  /**
+  * Authenticate and create session with the ArchiveSpace server
+  */
   public function authenticate() {
     try {
       // sanitize this?
@@ -52,7 +54,7 @@ class ArchiveSpaceApi {
       //echo "Sending request to " . $url . "\n";
     } catch (GuzzleHttp\Exception\ServerException $e) {
     } catch (GuzzleHttp\Exception\ClientException $e) {
-      die(); // use retry with recurs limit
+      throw new Exception("Unable to authenticate:\n" . $e); // non available page!
     }
     if ($response->getStatusCode() == 200) {
       //echo "Successfully authenticated!\n";
@@ -64,6 +66,9 @@ class ArchiveSpaceApi {
     }
   }
 
+  /**
+  * Get data from an ArchiveSpace Digital Object by id
+  */
   public function getDigitalObject(int $digitalobject_id) {
     $url = BASE_URI . '/repositories/' . REPO_ID . '/digital_objects/' . $digitalobject_id;
 
@@ -75,6 +80,7 @@ class ArchiveSpaceApi {
         }]);
     } catch (GuzzleHttp\Exception\ClientException $e) {
         echo ("Unable to reach server: \n" . $e);
+        throw new Exception($e);
       die(); // make this a retry with a recurs limit
     }
 
@@ -88,6 +94,9 @@ class ArchiveSpaceApi {
     }
   }
 
+  /**
+  * Get data from an ArchiveSpace Archival Object by id
+  */
   public function getArchivalObject(int $archivalobject_id) {
     $url = BASE_URI . '/repositories/' . REPO_ID . '/archival_objects/' . $archivalobject_id;
 
@@ -98,6 +107,7 @@ class ArchiveSpaceApi {
           $url = $stats->getEffectiveUri();
         }]);
     } catch (GuzzleHttp\Exception\ClientException $e) {
+        throw new Exception($e);
         echo ("Unable to reach server:\n" . $e);
     }
 
@@ -163,7 +173,7 @@ class ArchiveSpaceApi {
       //echo 'HTTP request URL: ' . $url . "\n";
       //echo 'HTTP response status: ' . $e->getResponse()->getStatusCode() . "\n";
       echo 'Exception: ' . $e->getMessage() . "\n";
-      die(); // make this a retry with a recurs limit
+      throw new Exception($e);
     }
 
     if ($response->getStatusCode() == 200) {
@@ -175,6 +185,9 @@ class ArchiveSpaceApi {
     }
   }
 
+  /**
+  * Get data from an ArchiveSpace Agent by id
+  */
   public function getAgentById(int $id) {
     $url = BASE_URI . '/agents/people/' . $id;
 
@@ -185,7 +198,7 @@ class ArchiveSpaceApi {
           $url = $stats->getEffectiveUri();
         }]);
     } catch (GuzzleHttp\Exception\ClientException $e) {
-      die(); // make this a retry with a recurs limit
+      throw new Exception('Guzzle Error: ' . $e);
     }
 
     if ($response->getStatusCode() == 200) {
@@ -197,6 +210,9 @@ class ArchiveSpaceApi {
     }
   }
 
+  /**
+  * Handle request to ArchiveSpace server for archival object
+  */
   public function serveASpaceDataFromAO(int $ao_id) {
     $cli = new ArchiveSpaceApi();
     $cli->authenticate();
@@ -205,6 +221,9 @@ class ArchiveSpaceApi {
     return $ao;
   }
 
+  /**
+  * Handle request to ArchiveSpace server for resource
+  */
   public function serveASpaceDataFromResource(int $r_id) {
     $cli = new ArchiveSpaceApi();
     $cli->authenticate();
