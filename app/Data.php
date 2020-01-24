@@ -48,6 +48,23 @@ class Data {
     }
 
     /** 
+    * Get general entry data from a resource object (with alernate description location)
+    * 
+    * Live software link should be saved on the object in External Documents->Location
+    * @param array of json data from a resource
+    */
+    public static function extractResourceData2(array $data) {
+        $mapped_data = array(
+                  "entry_name"        => $data['title'],
+                  "entry_title"       => $data['title'],
+                  "entry_date"        => $data['dates'][0]['expression'],
+                  "entry_description" => (empty($data['notes'][0]['subnotes'][0]['content']) ? 'Visit to learn more': $data['notes'][0]['subnotes'][0]['content']));
+        return $mapped_data;
+    }
+
+
+
+    /** 
     * Get emulation url from digital object
     * 
     * Emulation link should be saved on the object in External Documents->Location
@@ -69,6 +86,18 @@ class Data {
         $mapped_data = array(
                   "history_url"     => $data['external_documents'][0]['location']);
         return $mapped_data;
+    }
+
+    public static function extractGalleryData(array $data) {
+        $mapped_data = array();
+        foreach ($data as $do) {
+            $mapped_obj = array(
+                            "title"      => $do['title'],
+                            "media_url"  => $do['file_versions'][1]['file_uri']);
+            array_push($mapped_data, $mapped_obj);
+        }
+        return $mapped_data;
+
     }
 
 }

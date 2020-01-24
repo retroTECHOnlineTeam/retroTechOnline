@@ -111,10 +111,28 @@ Route::get('/knowbot', function () {
 
 Route::get('/olympics', function () {
 
-    //TODO - is an accession currently, 1770
     $cli = new ArchiveSpaceApi();
-    //var_dump($data);
-    return view('gallery');
+    $data = $cli->serveASpaceDataFromResource(1770);
+    $mapped_data = Data::extractResourceData2($data);
+
+    $gallery_data = $cli->serveDigitalObjectCollectionFromAO(89136);
+    $mapped_gallery_data = Data::extractGalleryData($gallery_data);
+
+    $cli->authenticate();
+    $history_obj1 = $cli->getDigitalObject(5103);
+    $history_data1 = Data::extractOralHistoryData($history_obj1);
+    $history_obj2 = $cli->getDigitalObject(5103);
+    $history_data2 = Data::extractOralHistoryData($history_obj2);
+
+    // TODO pull this link from aspace DO file versions[1]
+    $history_img = "https://smartech.gatech.edu/bitstream/handle/1853/62114/Scott-Robertson-oral-history-screenshot.jpeg?sequence=5&isAllowed=y";
+    $history_img2 = "https://smartech.gatech.edu/bitstream/handle/1853/62114/Scott-Robertson-oral-history-screenshot.jpeg?sequence=5&isAllowed=y";
+    
+    $all_data = array_merge($mapped_data, $mapped_gallery_data, array("history_img" => $history_img, "history_img2" => $history_img2));
+    return view('template4',
+                ['data' => $all_data, 
+                'history_data' => $history_data1, 
+                'history_data2' => $history_data2]);
 });
 
 ?>

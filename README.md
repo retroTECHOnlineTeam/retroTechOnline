@@ -52,7 +52,7 @@ php artisan serve
 ***
 
 ## Overall System Diagram
-![System Diagram](RetroTech Online System Diagram.png)
+![System Diagram](RetroTechOnlineSystemDiagram.png)
 
 ### Panel Types and Contents
 - Oral History:

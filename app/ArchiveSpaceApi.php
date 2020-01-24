@@ -132,7 +132,8 @@ class ArchiveSpaceApi {
   public function getDigitalObjectsFromArchivalObject(array $archivalobject) {
     $ret = array();
     foreach ($archivalobject["instances"] as $instance) {
-      $do_ref = end(explode("/", $instance["digital_object"]["ref"]));
+      $do_exploded = explode("/", $instance["digital_object"]["ref"]);
+      $do_ref = end($do_exploded);
       // add check here that ref is a valid integer/not empty
       // possibly limit to subject tag "retrotech" and "published"
       array_push($ret, $this->getDigitalObject($do_ref));
@@ -230,6 +231,14 @@ class ArchiveSpaceApi {
     $resource = $cli->getResourceById($r_id);
     return $resource;
 
+  }
+
+  public function serveDigitalObjectCollectionFromAO(int $ao_id) {
+    $cli = new ArchiveSpaceApi();
+    $cli->authenticate();
+    $ao = $cli->getArchivalObject($ao_id);
+    $digitalobjs = $cli->getDigitalObjectsFromArchivalObject($ao);
+    return $digitalobjs;
   }
 }
 
