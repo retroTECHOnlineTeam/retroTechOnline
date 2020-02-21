@@ -11,27 +11,49 @@
 </div>
 <div>  
   <div class="l-center l-content-container paragraph paragraph--type--two-up-layout paragraph--view-mode--default">
-    <section class="l-two-up">
-        <div class="two-up-layout--content-first">
-          <h4 class="headline-band__title h4">
-            {{ $data[1]['title'] }}
-          </h4>
-          {!! $data[1]['media_url'] !!}
-          <h4 class="headline-band__title h4">
-            {{ $data[2]['title'] }}
-          </h4>
-          {!! $data[2]['media_url'] !!}
-        </div>
-        <div class="two-up-layout--content-second">
-          <h4 class="headline-band__title h4">
-            {{ $data[3]['title'] }}
-          </h4>
-          {!! $data[3]['media_url'] !!}
-          <h4 class="headline-band__title h4">
-            {{ $data[4]['title'] }}
-          </h4>
-          {!! $data[4]['media_url'] !!}
-        </div>
-      </section>
+    <section class="l-two-up-50-50">
+      <div class="two-up-layout--content-first">
+        {!! $data[1]['media_url'] !!}
+      </div>
+      <div class="two-up-layout--content-second">
+        {!! $data[2]['media_url'] !!}
+      </div>
+    </section>
+    <section class="l-two-up-50-50 body-text">
+      <div class="two-up-layout--content-first">
+        <h3 class="headline-band__title">
+          {{ $data[1]['title'] }}
+        </h3>
+        Description 1
+      </div>
+      <div class="two-up-layout--content-second">
+        <h3 class="headline-band__title">
+          {{ $data[2]['title'] }}
+        </h3>
+        Description 2
+      </div>
+    </section>
+    <section class="l-two-up-50-50">
+      <div class="two-up-layout--content-first">
+        {!! $data[3]['media_url'] !!}
+      </div>
+      <div class="two-up-layout--content-second">
+        {!! $data[4]['media_url'] !!}
+      </div>
+    </section>
+    <section class="l-two-up-50-50 body-text">
+      <div class="two-up-layout--content-first">
+        <h3 class="headline-band__title">
+          {{ $data[3]['title'] }}
+        </h3>
+        Description 3
+      </div>
+      <div class="two-up-layout--content-second">
+        <h3 class="headline-band__title">
+          {{ $data[4]['title'] }}
+        </h3>
+        Description 4
+      </div>
+    </section>
   </div>
 </div>
