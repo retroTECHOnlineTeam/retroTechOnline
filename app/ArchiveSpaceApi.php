@@ -120,11 +120,44 @@ class ArchiveSpaceApi {
     }
   }
 
+  /**
+  * Get a full resource tree by id
+  */
+  public function getResourceTree(int $resource_id) {
+    $url = BASE_URI . '/repositories/' . REPO_ID . '/resources/' . $resource_id . '/tree';
+
+    try {
+      $response = $this->client->request('GET', $url, [
+        'headers' => ['X-ArchivesSpace-Session' => $this->session_id],
+        'on_stats' => function (GuzzleHttp\TransferStats $stats) use (&$url) {
+          $url = $stats->getEffectiveUri();
+        }]);
+    } catch (GuzzleHttp\Exception\ClientException $e) {
+        throw new Exception($e);
+        echo ("Unable to reach server:\n" . $e);
+    }
+
+    if ($response->getStatusCode() == 200) {
+      //echo "Successfully retrieved archival object!\n";
+      $data = json_decode($response->getBody(), true);
+      return($data);
+    } else {
+      throw new Error("Something went wrong with your request. Unable to get archival object.\n");
+    }
+  }
+
   public function getObjectsFromTree(array $resource_tree) {
     $ret = array();
     foreach ($resource_tree["children"] as $child) {
       array_push($ret, $this->getArchivalObject($child["id"]));
       // add to return array
+      if($child["has_children"]) {
+        $subarr = array();
+        foreach ($child["children"] as $subchild) {
+          $subarr[] = $subchild;
+        }
+        $ret["children"] = $subarr;
+      }
     }
     return ($ret);
   }
@@ -136,7 +169,7 @@ class ArchiveSpaceApi {
       $do_ref = end($do_exploded);
       // add check here that ref is a valid integer/not empty
       // possibly limit to subject tag "retrotech" and "published"
-      array_push($ret, $this->getDigitalObject($do_ref));
+      array_push($ret, $this->getDigitalObject($do_ref)); // TODO optomize w $arr[]
     }
     return ($ret);
   }
@@ -225,10 +258,10 @@ class ArchiveSpaceApi {
   /**
   * Handle request to ArchiveSpace server for resource
   */
-  public function serveASpaceDataFromResource(int $r_id) {
+  public function serveASpaceDataFromResource(int $r_id, bool $get_tree = false ) {
     $cli = new ArchiveSpaceApi();
     $cli->authenticate();
-    $resource = $cli->getResourceById($r_id);
+    $resource = $cli->getResourceById($r_id, $get_tree);
     return $resource;
 
   }
@@ -239,6 +272,27 @@ class ArchiveSpaceApi {
     $ao = $cli->getArchivalObject($ao_id);
     $digitalobjs = $cli->getDigitalObjectsFromArchivalObject($ao);
     return $digitalobjs;
+  }
+
+  public function getCs2261Entry(int $id) {
+    $cli = new ArchiveSpaceApi();
+    $data = $cli->serveASpaceDataFromAO($id);
+
+    $cli->authenticate(); // must authenticate here again to make more calls to Aspace server
+    $history_obj = $cli->getDigitalObject(ArchiveSpaceApi::_getIDFromUrl($data['instances'][1]['digital_object']['ref']));
+    $emulation_obj =$cli->getDigitalObject(ArchiveSpaceApi::_getIDFromUrl($data['instances'][0]['digital_object']['ref']));
+    $agent = $cli->getAgentById(ArchiveSpaceApi::_getIDFromUrl($data['linked_agents'][0]['ref']));
+
+    $mapped_data = Data::extractArchivalObjectData($data);
+    $history_data = Data::extractOralHistoryData($history_obj);
+    $emulation_data = Data::extractEmulationData($emulation_obj);
+    $agent_formatted = Data::formatName($agent["title"]);
+
+    // TODO pull this link from aspace DO file versions[1]
+    $emulation_img = "https://smartech.gatech.edu/bitstream/handle/1853/61883/Cooking-Mama-Food-Fight-screenshot.jpg";
+    $history_img = "https://smartech.gatech.edu/bitstream/handle/1853/61883/Cooking-Mama-Food-Fight-screenshot.jpg";
+    $all_data = array_merge($mapped_data, array('history_data' => $history_data, 'emulation_data' => $emulation_data, "history_img" => $history_img, "emulation_img" => $emulation_img, "agent_name" => $agent_formatted));
+    return $all_data;
   }
 }
 

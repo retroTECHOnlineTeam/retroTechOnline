@@ -11,6 +11,30 @@
 |
 */
 
+Route::get('/cs2261', function () {
+    $cli = new ArchiveSpaceApi();
+    $resource_data = $cli->serveASpaceDataFromResource(1762, true);
+    $collection_title = Data::extractTitle($resource_data);
+    $entries = array();
+
+    foreach ($resource_data["children"] as $series) {
+        $series_title = Data::extractTitle($series);
+        $count = 0;
+        foreach ($series["children"] as $entry) {
+            // check if the entry has two digital objects (oral history & emulation link)
+            if (sizeof($entry["instance_types"]) > 1) {
+                $entry_data = array();
+                $entry_data = $cli->getCs2261Entry($entry["id"]);
+                $entries[$count] = $entry_data;
+                $count++;
+            }
+        }
+    }
+
+    $data = array_merge(array("title" => $collection_title, "series_title" => $series_title), ["entries" => $entries]);
+    // print_r($data);
+    return view('template2_series', ["data" => $data]);
+});
 
 // TODO feature in series of CS2261 projects
 Route::get('/cooking-mama', function () {
@@ -33,10 +57,11 @@ Route::get('/cooking-mama', function () {
     // TODO pull this link from aspace DO file versions[1]
     $emulation_img = "https://smartech.gatech.edu/bitstream/handle/1853/61883/Cooking-Mama-Food-Fight-screenshot.jpg";
     $history_img = "https://smartech.gatech.edu/bitstream/handle/1853/61883/Cooking-Mama-Food-Fight-screenshot.jpg";
-    $all_data = array_merge($mapped_data, $emulation_data, array("history_img" => $history_img, "emulation_img" => $emulation_img, "agent_name" => $agent_formatted, "entry_date" => $mapped_series_data["entry_date"]));
+    $all_data = array_merge($mapped_data, array("history_img" => $history_img, "emulation_img" => $emulation_img, "agent_name" => $agent_formatted, "entry_date" => $mapped_series_data["entry_date"]));
     return view('template3_1', 
                 ['data' => $all_data, 
-                'history_data' => $history_data]);
+                'history_data' => $history_data,
+                'emulation_data' => $emulation_data]);
 });
 
 // TODO feature in series of CS2110 projects

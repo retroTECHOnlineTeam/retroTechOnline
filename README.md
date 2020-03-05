@@ -68,6 +68,39 @@ php artisan serve
 - Lab Info:
     - lab photo
 
+### Views
+
+#### Full Page Templates
+
+- template1.blade.php
+- template2_1.blade.php
+- template2_2.blade.php
+- template2_series.blade.php
+- template3_1.blade.php
+- template3_2.blade.php
+- template4.blade.php
+
+#### Panel Layout Templates
+
+- twoupleft.blade.php
+- twoupright.blade.php
+
+#### Panels
+
+- gallery.blade.php
+- lab.blade.php
+- oralhistory.blade.php
+- oralhistory2.blade.php
+- seriesentry.blade.php
+- software.blade.php
+
+#### GT Library Theme Components
+
+- breadcrumbs.blade.php
+- header.blade.php
+- footer.blade.php
+
+
 ***
 ## Troubleshooting
 ### Clearing the cache

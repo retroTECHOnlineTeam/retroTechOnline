@@ -8,14 +8,13 @@
       </div>
     </section>
   </div>
-
   <div>
-    <a href="{{ $data['emulation_url'] }}" target="_blank"><img srcset="{{ $data['emulation_img'] }}" src="{{ $data['emulation_img'] }}" class="img-container" typeof="foaf:Image" ></a>
+    <a href="{{ $emulation_data['emulation_url'] }}" target="_blank"><img srcset="{{ $data['emulation_img'] }}" src="{{ $data['emulation_img'] }}" class="img-container" typeof="foaf:Image" ></a>
   </div>
 
   <div class="l-center l-content-container small paragraph paragraph--type--cta-links paragraph--view-mode--default">
     <section class="cta-links">
-      <a href="{{ $data['emulation_url'] }}" target="_blank" class="chevron-link">Start Emulation</a>
+      <a href="{{ $emulation_data['emulation_url'] }}" target="_blank" class="chevron-link">Start Emulation</a>
     </section>
   </div>
 </div>

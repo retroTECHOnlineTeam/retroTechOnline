@@ -100,6 +100,10 @@ class Data {
 
     }
 
+    public static function extractTitle(array $data) {
+        return $data['title'];
+    }
+
 }
 
 ?>
