@@ -9,8 +9,11 @@
 <body>
     @include('header')
     @include('breadcrumbs')
-
-    <h2 class = "headline-band__title l-center">{{ $data['title'] }}</h2>
+    <section class="headline-band__title headline-band__underline">
+        <h1 class = "l-center h1">{{ $data['title'] }}</h1>
+        {{-- TODO collection descriptions --}}
+        <h2 class = "headline-band__title l-center h2">{{ $data['series_title'] }}</h1>
+    </section>
     
     @each('seriesentry', $data['entries'], 'data')  
 
