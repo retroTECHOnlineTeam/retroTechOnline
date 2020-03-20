@@ -70,24 +70,24 @@ Can be found under resources/views/
 Consist of one or more Panel Layouts as well as the GT theme
 
 - [template1.blade.php](resources/views/template1.blade.php) - template used for testing
-- *template2_1.blade.php* - 
-- *template2_2.blade.php* -
-- *template2_series.blade.php* - series of two-up panels
+- [template2_1.blade.php](resources/views/template2_1.blade.php) - 
+- [template2_2.blade.php](resources/views/template2_2.blade.php) -
+- [template2_series.blade.php](resources/views/template2_series.blade.php) - series of two-up panels
     - title (collection title)
     - series title
     - Series Entry Panels
     - Used by: CS 2261 GBA Games
-- *template3_1.blade.php* -
-- *template3_2.blade.php* -
-- *template4.blade.php* -
+- [template3_1.blade.php](resources/views/template3_1.blade.php) -
+- [template3_2.blade.php](resources/views/template3_2.blade.php) -
+- [template4.blade.php](resources/views/template4.blade.php) -
 
 ##### Panel Layout Templates
 
 Consist of two Panels side by side
 
-- *twoupleft.blade.php* -
-- *twoupright.blade.php* -
-- Series Entry: *seriesentry.blade.php* - a two-up 50-50 layout for use with template2_series
+- [twoupleft.blade.php](resources/views/twoupleft.blade.php) -
+- [twoupright.blade.php](resources/views/twoupright.blade.php) -
+- Series Entry: [seriesentry.blade.php](resources/views/seriesentry.blade.php) - a two-up 50-50 layout for use with template2_series
     - entry title
     - creator name (agent)
     - description
@@ -96,26 +96,27 @@ Consist of two Panels side by side
 
 
 ##### Panel Types and Contents
-- Oral History: *oralhistory.blade.php* or *oralhistory2.blade.php* - screenshot and link to the OHMS instance of video oral history
+- Oral History: [oralhistory.blade.php](resources/views/oralhistory.blade.php) and [oralhistory2.blade.php](resources/views/oralhistory2.blade.php) - screenshot and link to the OHMS instance of video oral history
     - oral history subject (person),
     - OHMS link,
     - screenshot,
-- Emulation: *emulation.blade.php* - screenshot and link to the EaaS instance of the software
+- Emulation: [emulation.blade.php](resources/views/emulation.blade.php) - screenshot and link to the EaaS instance of the software
     - EaaS link,
     - software screenshot,
-- Live Software: *software.blade.php* - screenshot and live download link of the software
+- Live Software: [software.blade.php](resources/views/software.blade.php) - screenshot and live download link of the software
     - OIT link,
     - software screenshot
-- Lab Info: *lab.blade.php* - a photo and link to the retroTECH main site
+- Lab Info: [lab.blade.php](resources/views/lab.blade.php) - a photo and link to the retroTECH main site
     - lab photo
-- Gallery: *gallery.blade.php* - a series of media files (video/photos) with titles and descriptions
+- Gallery: [gallery.blade.php](resources/views/gallery.blade.php) - a series of media files (video/photos) with titles and descriptions
 
 
 ##### GT Library Theme Components
 
-- *breadcrumbs.blade.php* - uses 'title'
-- *header.blade.php* - Georgia Tech Library site header
-- *footer.blade.php* - Georgia Tech Library site footer
+- [breadcrumbs.blade.php](resources/views/breadcrumbs.blade.php) - breadcrumbs bar under header menu
+    - requires 'title'
+- [header.blade.php](resources/views/header.blade.php) - Georgia Tech Library site header
+- [footer.blade.php](resources/views/footer.blade.php) - Georgia Tech Library site footer
 
 
 ***
@@ -138,7 +139,7 @@ composer self-update
 composer update
 ```
 ### Adding New Classes
-- To create new classes and make them available throughout the app, add the class to **composer.json** autoload (see below), then run composer and restart the server.
+- To create new classes and make them available throughout the app, add the class to [composer.json](composer.json) autoload (see below), then run composer and restart the server.
 
 ```
 "autoload": {
@@ -159,7 +160,7 @@ php artisan serve
 
 ```
 ### Adding CSS or JS files
-- To include new css files into the app build, make sure to include the filepath in **webpack.mix.js**
+- To include new css files into the app build, make sure to include the filepath in [webpack.mix.js](webpack.mix.js)
 
 - Remember to recompile and update the cache
 
