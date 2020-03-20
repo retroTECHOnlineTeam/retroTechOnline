@@ -32,7 +32,6 @@ Route::get('/cs2261', function () {
     }
 
     $data = array_merge(array("title" => $collection_title, "series_title" => $series_title), ["entries" => $entries]);
-    // print_r($data);
     return view('template2_series', ["data" => $data]);
 });
 
@@ -154,10 +153,15 @@ Route::get('/olympics', function () {
     $history_img2 = "https://smartech.gatech.edu/bitstream/handle/1853/62114/Scott-Robertson-oral-history-screenshot.jpeg?sequence=5&isAllowed=y";
     
     $all_data = array_merge($mapped_data, $mapped_gallery_data, array("history_img" => $history_img, "history_img2" => $history_img2));
-    return view('template4',
+    return view('template3_gallery',
                 ['data' => $all_data, 
                 'history_data' => $history_data1, 
                 'history_data2' => $history_data2]);
+});
+
+// Used for dev testing, shouldn't be any real api calls
+Route::get('/testing', function () {
+    return view('template1');
 });
 
 ?>

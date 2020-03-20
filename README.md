@@ -59,7 +59,7 @@ php artisan serve
 ***
 
 ## Overall System Diagram
-![System Diagram](RetroTechOnlineSystemDiagram.png)
+![System Diagram](resources/assets/RetroTechOnlineSystemDiagram.png)
 
 ### Views
 
@@ -70,23 +70,33 @@ Can be found under resources/views/
 Consist of one or more Panel Layouts as well as the GT theme
 
 - [template1.blade.php](resources/views/template1.blade.php) - template used for testing
-- [template2_1.blade.php](resources/views/template2_1.blade.php) - 
-- [template2_2.blade.php](resources/views/template2_2.blade.php) -
+- [template2_1.blade.php](resources/views/template2_1.blade.php) - two-up 50-50 of emulation and lab
+- [template2_2.blade.php](resources/views/template2_2.blade.php) - two-up 50-50 of oral history and lab
 - [template2_series.blade.php](resources/views/template2_series.blade.php) - series of two-up panels
     - title (collection title)
     - series title
     - Series Entry Panels
     - Used by: CS 2261 GBA Games
-- [template3_1.blade.php](resources/views/template3_1.blade.php) -
-- [template3_2.blade.php](resources/views/template3_2.blade.php) -
-- [template4.blade.php](resources/views/template4.blade.php) -
+- [template3_1.blade.php](resources/views/template3_1.blade.php) - three-up of 
+    - Emulation
+    - Oral history
+    - Lab
+- [template3_2.blade.php](resources/views/template3_2.blade.php) - three-up
+    - Oral history
+    - Software
+    - Oral history 2
+- [template4.blade.php](resources/views/template3_gallery.blade.php) - three-up with gallery
+    - Oral history
+    - Oral history
+    - Lab
+    - Gallery
 
 ##### Panel Layout Templates
 
 Consist of two Panels side by side
 
-- [twoupleft.blade.php](resources/views/twoupleft.blade.php) -
-- [twoupright.blade.php](resources/views/twoupright.blade.php) -
+- *depreciated* [twoupleft.blade.php](resources/views/twoupleft.blade.php) -
+- *depreciated* [twoupright.blade.php](resources/views/twoupright.blade.php) -
 - Series Entry: [seriesentry.blade.php](resources/views/seriesentry.blade.php) - a two-up 50-50 layout for use with template2_series
     - entry title
     - creator name (agent)

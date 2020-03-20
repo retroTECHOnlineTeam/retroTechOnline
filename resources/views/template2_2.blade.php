@@ -18,7 +18,7 @@
     </div>
 
     <div class="l-center l-content-container paragraph paragraph--type--two-up-layout paragraph--view-mode--default">
-      <section class="l-three-up">
+      <section class="l-two-up-50-50">
         <div class="two-up-layout--content-first">
           @include('oralhistory')
         </div>
