@@ -69,7 +69,7 @@ Can be found under resources/views/
 
 Consist of one or more Panel Layouts as well as the GT theme
 
-- *template1.blade.php* - 
+- [template1.blade.php](resources/views/template1.blade.php) - template used for testing
 - *template2_1.blade.php* - 
 - *template2_2.blade.php* -
 - *template2_series.blade.php* - series of two-up panels
@@ -109,7 +109,6 @@ Consist of two Panels side by side
 - Lab Info: *lab.blade.php* - a photo and link to the retroTECH main site
     - lab photo
 - Gallery: *gallery.blade.php* - a series of media files (video/photos) with titles and descriptions
-    - 
 
 
 ##### GT Library Theme Components
