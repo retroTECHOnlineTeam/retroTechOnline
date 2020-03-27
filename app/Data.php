@@ -6,6 +6,9 @@
 * @author Maura Gerke 
 */
 class Data {
+
+    const FINDING_AID_BASE_URL = "https://finding-aids.library.gatech.edu/";
+
     /**
     * Flip format of name from 'Last, First' to 'First Last'
     *
@@ -27,7 +30,8 @@ class Data {
                   "entry_name"        => $data['display_string'],
                   "entry_title"       => $data['title'],
                   "entry_date"        => (empty($data['dates'][0]['expression']) ? 'No date given': $data['dates'][0]['expression']),
-                  "entry_description" => (empty($data['notes'][0]['subnotes'][0]['content']) ? 'Visit to learn more': $data['notes'][0]['subnotes'][0]['content']));
+                  "entry_description" => (empty($data['notes'][0]['subnotes'][0]['content']) ? 'Visit to learn more': $data['notes'][0]['subnotes'][0]['content']),
+                  "uri_link"          => Data::FINDING_AID_BASE_URL . $data['uri']);
         return $mapped_data;
     }
 
@@ -43,7 +47,8 @@ class Data {
                   "entry_title"       => $data['title'],
                   "entry_date"        => $data['dates'][0]['expression'],
                   "entry_description" => (empty($data['notes'][1]['subnotes'][0]['content']) ? 'Visit to learn more': $data['notes'][1]['subnotes'][0]['content']),
-                  "software_url"     => (empty($data['external_documents'][0]['location'])) ? 'Link coming soon': $data['external_documents'][0]['location']);
+                  "software_url"     => (empty($data['external_documents'][0]['location'])) ? 'Link coming soon': $data['external_documents'][0]['location'],
+                  "uri_link"          => Data::FINDING_AID_BASE_URL . $data['uri']);
         return $mapped_data;
     }
 
@@ -58,7 +63,8 @@ class Data {
                   "entry_name"        => $data['title'],
                   "entry_title"       => $data['title'],
                   "entry_date"        => $data['dates'][0]['expression'],
-                  "entry_description" => (empty($data['notes'][0]['subnotes'][0]['content']) ? 'Visit to learn more': $data['notes'][0]['subnotes'][0]['content']));
+                  "entry_description" => (empty($data['notes'][0]['subnotes'][0]['content']) ? 'Visit to learn more': $data['notes'][0]['subnotes'][0]['content']),
+                  "uri_link"          => Data::FINDING_AID_BASE_URL . $data['uri']);
         return $mapped_data;
     }
 
@@ -102,6 +108,10 @@ class Data {
 
     public static function extractTitle(array $data) {
         return $data['title'];
+    }
+
+    public static function extractUri(array $data) {
+        return Data::FINDING_AID_BASE_URL . $data['record_uri'];
     }
 
 }

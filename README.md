@@ -71,13 +71,16 @@ Consist of one or more Panel Layouts as well as the GT theme
 
 - [template1.blade.php](resources/views/template1.blade.php) - template used for testing
 - [template2_1.blade.php](resources/views/template2_1.blade.php) - two-up 50-50 of emulation and lab
+    - currently unused
 - [template2_2.blade.php](resources/views/template2_2.blade.php) - two-up 50-50 of oral history and lab
+    - currently unused
 - [template2_series.blade.php](resources/views/template2_series.blade.php) - series of two-up panels
     - title (collection title)
     - series title
+    - series uri
     - Series Entry Panels
     - Used by: CS 2261 GBA Games
-- [template3_1.blade.php](resources/views/template3_1.blade.php) - three-up of 
+- [template3_1.blade.php](resources/views/template3_1.blade.php) - three-up
     - Emulation
     - Oral history
     - Lab
@@ -99,6 +102,7 @@ Consist of two Panels side by side
 - *depreciated* [twoupright.blade.php](resources/views/twoupright.blade.php) -
 - Series Entry: [seriesentry.blade.php](resources/views/seriesentry.blade.php) - a two-up 50-50 layout for use with template2_series
     - entry title
+    - uri
     - creator name (agent)
     - description
     - Emulation Panel

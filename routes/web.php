@@ -19,6 +19,7 @@ Route::get('/cs2261', function () {
 
     foreach ($resource_data["children"] as $series) {
         $series_title = Data::extractTitle($series);
+        $series_uri = Data::extractUri($series);
         $count = 0;
         foreach ($series["children"] as $entry) {
             // check if the entry has two digital objects (oral history & emulation link)
@@ -31,16 +32,17 @@ Route::get('/cs2261', function () {
         }
     }
 
-    $data = array_merge(array("title" => $collection_title, "series_title" => $series_title), ["entries" => $entries]);
+    $data = array_merge(array("title" => $collection_title, "series_title" => $series_title, "uri_link" => $series_uri), ["entries" => $entries]);
     return view('template2_series', ["data" => $data]);
 });
 
-// TODO feature in series of CS2261 projects
+// TODO use combined oral history/emulation video and 2up
 Route::get('/cooking-mama', function () {
 
     $cli = new ArchiveSpaceApi();
     $data = $cli->serveASpaceDataFromAO(86914);
     $series_data = $cli->serveASpaceDataFromAO(86913); // get date from upper container
+    var_dump($series_data);
 
     $cli->authenticate(); // must authenticate here again to make more calls to Aspace server
     $history_obj = $cli->getDigitalObject(ArchiveSpaceApi::_getIDFromUrl($data['instances'][1]['digital_object']['ref']));
@@ -57,6 +59,7 @@ Route::get('/cooking-mama', function () {
     $emulation_img = "https://smartech.gatech.edu/bitstream/handle/1853/61883/Cooking-Mama-Food-Fight-screenshot.jpg";
     $history_img = "https://smartech.gatech.edu/bitstream/handle/1853/61883/Cooking-Mama-Food-Fight-screenshot.jpg";
     $all_data = array_merge($mapped_data, array("history_img" => $history_img, "emulation_img" => $emulation_img, "agent_name" => $agent_formatted, "entry_date" => $mapped_series_data["entry_date"]));
+    //print_r($all_data);
     return view('template3_1', 
                 ['data' => $all_data, 
                 'history_data' => $history_data,
