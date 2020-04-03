@@ -282,6 +282,7 @@ class ArchiveSpaceApi {
     $history_obj = $cli->getDigitalObject(ArchiveSpaceApi::_getIDFromUrl($data['instances'][1]['digital_object']['ref']));
     $emulation_obj =$cli->getDigitalObject(ArchiveSpaceApi::_getIDFromUrl($data['instances'][0]['digital_object']['ref']));
     $agent = $cli->getAgentById(ArchiveSpaceApi::_getIDFromUrl($data['linked_agents'][0]['ref']));
+    //print_r($history_obj);
 
     $mapped_data = Data::extractArchivalObjectData($data);
     $history_data = Data::extractOralHistoryData($history_obj);

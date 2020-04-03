@@ -11,6 +11,9 @@
 
   <div>
     <a href="{{ $data['software_url'] }}" target="_blank"><img srcset="{{ $data['emulation_img'] }}" src="{{ $data['emulation_img'] }}" class="img-container" typeof="foaf:Image" ></a>
+    <div class="l-center l-content-container paragraph paragraph--type--text paragraph--view-mode--default">
+        <div class="body-text"><p>Access and download the current available version of this software (may require GT login). </p></div>
+    </div>
   </div>
 
   <div class="l-center l-content-container small paragraph paragraph--type--cta-links paragraph--view-mode--default">

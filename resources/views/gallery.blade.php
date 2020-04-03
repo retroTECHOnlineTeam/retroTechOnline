@@ -33,6 +33,7 @@
         Description 2
       </div>
     </section>
+    <br>
     <section class="l-two-up-50-50">
       <div class="two-up-layout--content-first">
         {!! $data[3]['media_url'] !!}

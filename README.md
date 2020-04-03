@@ -84,15 +84,18 @@ Consist of one or more Panel Layouts as well as the GT theme
     - Emulation
     - Oral history
     - Lab
+    - currently unused
 - [template3_2.blade.php](resources/views/template3_2.blade.php) - three-up
     - Oral history
     - Software
     - Oral history 2
+    - Used by: Knowbot
 - [template4.blade.php](resources/views/template3_gallery.blade.php) - three-up with gallery
     - Oral history
     - Oral history
     - Lab
     - Gallery
+    - Used by: Olympics
 
 ##### Panel Layout Templates
 

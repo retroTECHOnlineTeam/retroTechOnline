@@ -11,7 +11,7 @@
     @include('breadcrumbs')
 
     <h2 class = "headline-band__title l-center">
-        <a href="{{ $data['uri_link'] }}">{{ $data['entry_title'] }}</a>
+        {{ $data['entry_title'] }}
     </h2>
     <h3 class="headline-band__title l-center">{{ $data['agent_name'] }}, {{ $data['entry_date'] }}</h3>
 

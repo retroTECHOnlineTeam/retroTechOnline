@@ -10,6 +10,9 @@
   </div>
   <div>
     <a href="{{ $emulation_data['emulation_url'] }}" target="_blank"><img srcset="{{ $data['emulation_img'] }}" src="{{ $data['emulation_img'] }}" class="img-container" typeof="foaf:Image" ></a>
+    <div class="l-center l-content-container paragraph paragraph--type--text paragraph--view-mode--default">
+        <div class="body-text"><p>Experience this software through an online emulator. </p></div>
+    </div>
   </div>
 
   <div class="l-center l-content-container small paragraph paragraph--type--cta-links paragraph--view-mode--default">

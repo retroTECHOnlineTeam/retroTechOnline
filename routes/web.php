@@ -14,7 +14,7 @@
 Route::get('/cs2261', function () {
     $cli = new ArchiveSpaceApi();
     $resource_data = $cli->serveASpaceDataFromResource(1762, true);
-    $collection_title = Data::extractTitle($resource_data);
+    $collection_data = Data::extractCollectionData($resource_data);
     $entries = array();
 
     foreach ($resource_data["children"] as $series) {
@@ -32,7 +32,7 @@ Route::get('/cs2261', function () {
         }
     }
 
-    $data = array_merge(array("title" => $collection_title, "series_title" => $series_title, "uri_link" => $series_uri), ["entries" => $entries]);
+    $data = array_merge($collection_data, array("series_title" => $series_title, "uri_link" => $series_uri), ["entries" => $entries]);
     return view('template2_series', ["data" => $data]);
 });
 
