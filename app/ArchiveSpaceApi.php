@@ -266,6 +266,17 @@ class ArchiveSpaceApi {
 
   }
 
+  /**
+  * Handle request to ArchiveSpace server for resource
+  */
+  public function serveASpaceDataFromDO(int $do_id) {
+    $cli = new ArchiveSpaceApi();
+    $cli->authenticate();
+    $resource = $cli->getDigitalObject($do_id);
+    return $resource;
+
+  }
+
   public function serveDigitalObjectCollectionFromAO(int $ao_id) {
     $cli = new ArchiveSpaceApi();
     $cli->authenticate();
@@ -274,25 +285,66 @@ class ArchiveSpaceApi {
     return $digitalobjs;
   }
 
-  public function getCs2261Entry(int $id) {
+  public function searchForDOComponents( ) {
+    //http://your.base.api.url/search?page=1&filter={"query": {"jsonmodel_type": "boolean_query","op": "AND","subqueries": [{"field": "primary_type","value": "digital_object_component","jsonmodel_type": "field_query","negated": false,"literal": true}, {"field": "digital_object","value": "/repositories/2/digital_objects/1","jsonmodel_type": "field_query","negated": false,"literal": true}]}}
+    
+
+    $cli = new ArchiveSpaceApi();
+    $cli->authenticate();
+
+
+
+    $json = '{"query": {"jsonmodel_type": "boolean_query","op": "AND","subqueries": [{"field": "primary_type","value": "digital_object_component","jsonmodel_type": "field_query","negated": false,"literal": true}, {"field": "digital_object","value": "/repositories/2/digital_objects/1","jsonmodel_type": "field_query","negated": false,"literal": true}]}}';
+    $url = BASE_URI . '/search/' . '?page=1&type=digitial_object_component' . $json;
+    var_dump($url);
+
+    try {
+      $response = $this->client->request('GET', $url, [
+        'headers' => ['X-ArchivesSpace-Session' => $this->session_id],
+        'on_stats' => function (GuzzleHttp\TransferStats $stats) use (&$url) {
+          $url = $stats->getEffectiveUri();
+        }]);
+    } catch (GuzzleHttp\Exception\ClientException $e) {
+        echo ("Unable to reach server: \n" . $e);
+        throw new Exception($e);
+      die(); // make this a retry with a recurs limit
+    }
+
+    if ($response->getStatusCode() == 200) {
+      $data = json_decode($response->getBody(), true);
+      return($data);
+    } else {
+      throw new Error("Something went wrong with your request. Unable to get digital object.\n");
+    }
+
+  }
+
+  public function getTwoUpEntry(int $id) {
     $cli = new ArchiveSpaceApi();
     $data = $cli->serveASpaceDataFromAO($id);
 
     $cli->authenticate(); // must authenticate here again to make more calls to Aspace server
-    $history_obj = $cli->getDigitalObject(ArchiveSpaceApi::_getIDFromUrl($data['instances'][1]['digital_object']['ref']));
-    $emulation_obj =$cli->getDigitalObject(ArchiveSpaceApi::_getIDFromUrl($data['instances'][0]['digital_object']['ref']));
-    $agent = $cli->getAgentById(ArchiveSpaceApi::_getIDFromUrl($data['linked_agents'][0]['ref']));
-    //print_r($history_obj);
-
     $mapped_data = Data::extractArchivalObjectData($data);
-    $history_data = Data::extractOralHistoryData($history_obj);
+    $emulation_obj =$cli->getDigitalObject(ArchiveSpaceApi::_getIDFromUrl($data['instances'][0]['digital_object']['ref']));
     $emulation_data = Data::extractEmulationData($emulation_obj);
+    $emulation_img = $emulation_obj['file_versions'][1]['file_uri'];
+        $agent = $cli->getAgentById(ArchiveSpaceApi::_getIDFromUrl($data['linked_agents'][0]['ref']));
     $agent_formatted = Data::formatName($agent["title"]);
 
-    // TODO pull this link from aspace DO file versions[1]
-    $emulation_img = "https://smartech.gatech.edu/bitstream/handle/1853/61883/Cooking-Mama-Food-Fight-screenshot.jpg";
-    $history_img = "https://smartech.gatech.edu/bitstream/handle/1853/61883/Cooking-Mama-Food-Fight-screenshot.jpg";
-    $all_data = array_merge($mapped_data, array('history_data' => $history_data, 'emulation_data' => $emulation_data, "history_img" => $history_img, "emulation_img" => $emulation_img, "agent_name" => $agent_formatted));
+    $all_data = array_merge($mapped_data, array('emulation_data' => $emulation_data, "emulation_img" => $emulation_img, "agent_name" => $agent_formatted));
+
+    // not all entries have oral histories
+    if (sizeof($data['instances']) > 1) { 
+      $history_obj = $cli->getDigitalObject(ArchiveSpaceApi::_getIDFromUrl($data['instances'][1]['digital_object']['ref']));
+      $history_data = Data::extractOralHistoryData($history_obj);
+      //$history_img = $history_obj['file_versions'][1]['file_uri'];
+          // TODO use combined oral history video
+      $history_img = "https://smartech.gatech.edu/bitstream/handle/1853/61883/Cooking-Mama-Food-Fight-screenshot.jpg";
+      //$t = $cli->searchForDOComponents();
+      //var_dump($t);
+      $all_data = array_merge($all_data, array('history_data' => $history_data, "history_img" => $history_img));
+    }
+
     return $all_data;
   }
 }

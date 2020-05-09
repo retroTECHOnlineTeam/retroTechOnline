@@ -38,6 +38,8 @@
 
     @include('gallery')
 
+    @include('documentation')
+
     @include('footer')
 </body>
 </html>

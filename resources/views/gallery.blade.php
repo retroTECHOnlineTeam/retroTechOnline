@@ -24,13 +24,11 @@
         <h3 class="headline-band__title">
           {{ $data[1]['title'] }}
         </h3>
-        Description 1
       </div>
       <div class="two-up-layout--content-second">
         <h3 class="headline-band__title">
           {{ $data[2]['title'] }}
         </h3>
-        Description 2
       </div>
     </section>
     <br>
@@ -47,13 +45,11 @@
         <h3 class="headline-band__title">
           {{ $data[3]['title'] }}
         </h3>
-        Description 3
       </div>
       <div class="two-up-layout--content-second">
         <h3 class="headline-band__title">
           {{ $data[4]['title'] }}
         </h3>
-        Description 4
       </div>
     </section>
   </div>

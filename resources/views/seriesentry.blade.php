@@ -16,7 +16,11 @@
       @include('emulation', ['emulation_data' => $data['emulation_data']])
     </div>
     <div class="two-up-layout--content-second">
-      @include('oralhistory', ['history_data' => $data['history_data']])
+      @if (empty($data['history_data']))
+        @include('lab')
+      @else 
+        @include('oralhistory', ['history_data' => $data['history_data']])
+      @endif
     </div>
   </section>
 </div>

@@ -16,16 +16,16 @@ Route::get('/cs2261', function () {
     $resource_data = $cli->serveASpaceDataFromResource(1762, true);
     $collection_data = Data::extractCollectionData($resource_data);
     $entries = array();
-
+// TODO use combined oral history/emulation video and 2up
     foreach ($resource_data["children"] as $series) {
         $series_title = Data::extractTitle($series);
         $series_uri = Data::extractUri($series);
         $count = 0;
         foreach ($series["children"] as $entry) {
-            // check if the entry has two digital objects (oral history & emulation link)
-            if (sizeof($entry["instance_types"]) > 1) {
+            // check if the entry has a digital object (emulation link at least)
+            if (sizeof($entry["instance_types"]) > 0) {
                 $entry_data = array();
-                $entry_data = $cli->getCs2261Entry($entry["id"]);
+                $entry_data = $cli->getTwoUpEntry($entry["id"]);
                 $entries[$count] = $entry_data;
                 $count++;
             }
@@ -36,80 +36,85 @@ Route::get('/cs2261', function () {
     return view('template2_series', ["data" => $data]);
 });
 
+Route::get('/cs2110', function () {
+    $cli = new ArchiveSpaceApi();
+    $resource_data = $cli->serveASpaceDataFromResource(1761, true);
+    $collection_data = Data::extractCollectionData($resource_data);
+    $entries = array();
 // TODO use combined oral history/emulation video and 2up
-Route::get('/cooking-mama', function () {
+    foreach ($resource_data["children"] as $series) {
+        $series_title = Data::extractTitle($series);
+        $series_uri = Data::extractUri($series);
+        $count = 0;
+        foreach ($series["children"] as $entry) {
+            // check if the entry has a digital object (emulation link at least)
+            if (sizeof($entry["instance_types"]) > 0) {
+                $entry_data = array();
+                $entry_data = $cli->getTwoUpEntry($entry["id"]);
+                $entries[$count] = $entry_data;
+                $count++;
+            }
+        }
+    }
+
+    $data = array_merge($collection_data, array("series_title" => $series_title, "uri_link" => $series_uri), ["entries" => $entries]);
+    return view('template2_series', ["data" => $data]);
+});
+
+Route::get('/ribbit', function () {
 
     $cli = new ArchiveSpaceApi();
-    $data = $cli->serveASpaceDataFromAO(86914);
-    $series_data = $cli->serveASpaceDataFromAO(86913); // get date from upper container
-    var_dump($series_data);
-
-    $cli->authenticate(); // must authenticate here again to make more calls to Aspace server
-    $history_obj = $cli->getDigitalObject(ArchiveSpaceApi::_getIDFromUrl($data['instances'][1]['digital_object']['ref']));
-    $emulation_obj =$cli->getDigitalObject(ArchiveSpaceApi::_getIDFromUrl($data['instances'][0]['digital_object']['ref']));
+    $tree = $cli->serveASpaceDataFromResource(1753, true);
+    $data = $cli->serveASpaceDataFromResource(1753, false);
+    $mapped_data = Data::extractResourceData2($data);
+    
+    $cli->authenticate();
     $agent = $cli->getAgentById(ArchiveSpaceApi::_getIDFromUrl($data['linked_agents'][0]['ref']));
-
-    $mapped_data = Data::extractArchivalObjectData($data);
-    $history_data = Data::extractOralHistoryData($history_obj);
-    $emulation_data = Data::extractEmulationData($emulation_obj);
-    $mapped_series_data = Data::extractArchivalObjectData($series_data); // need for date
     $agent_formatted = Data::formatName($agent["title"]);
 
-    // TODO pull this link from aspace DO file versions[1]
-    $emulation_img = "https://smartech.gatech.edu/bitstream/handle/1853/61883/Cooking-Mama-Food-Fight-screenshot.jpg";
-    $history_img = "https://smartech.gatech.edu/bitstream/handle/1853/61883/Cooking-Mama-Food-Fight-screenshot.jpg";
-    $all_data = array_merge($mapped_data, array("history_img" => $history_img, "emulation_img" => $emulation_img, "agent_name" => $agent_formatted, "entry_date" => $mapped_series_data["entry_date"]));
-    //print_r($all_data);
+    $history_ao = $cli->getArchivalObject($tree['children'][1]['id']);
+    $history_obj = $cli->getDigitalObjectsFromArchivalObject($history_ao)[0];
+    $history_data = Data::extractOralHistoryData($history_obj);
+    // different one
+    $history_img = $history_obj['file_versions'][1]['file_uri'];
+
+    $emulation_ao = $cli->getArchivalObject($tree['children'][0]['id']);
+    $emulation_obj = $cli->getDigitalObjectsFromArchivalObject($emulation_ao)[0];
+    $emulation_data = Data::extractEmulationData($emulation_obj);
+    $emulation_img = $emulation_obj['file_versions'][1]['file_uri'];
+    $all_data = array_merge($mapped_data, array("emulation_img" => $emulation_img, "history_img" => $history_img, "agent_name" => $agent_formatted));
     return view('template3_1', 
                 ['data' => $all_data, 
                 'history_data' => $history_data,
                 'emulation_data' => $emulation_data]);
 });
 
-// TODO feature in series of CS2110 projects
-Route::get('/yeji', function () {
-    $cli = new ArchiveSpaceApi();
-    $data = $cli->serveASpaceDataFromAO(86910);
-    $series_data = $cli->serveASpaceDataFromAO(86909); // get date from upper container
-    
-    $cli->authenticate(); // must authenticate here again to make more calls to Aspace server
-    $history_obj = $cli->getDigitalObject(ArchiveSpaceApi::_getIDFromUrl($data['instances'][1]['digital_object']['ref']));
-    $emulation_obj =$cli->getDigitalObject(ArchiveSpaceApi::_getIDFromUrl($data['instances'][0]['digital_object']['ref']));
-    $agent = $cli->getAgentById(ArchiveSpaceApi::_getIDFromUrl($data['linked_agents'][0]['ref']));
-
-    $mapped_data = Data::extractArchivalObjectData($data);
-    $history_data = Data::extractOralHistoryData($history_obj);
-    $emulation_data = Data::extractEmulationData($emulation_obj);
-    $mapped_series_data = Data::extractArchivalObjectData($series_data); // need for date
-    $agent_formatted = Data::formatName($agent["title"]);
-
-    
-    // TODO pull this link from aspace DO file versions[1]
-    $emulation_img = "https://smartech.gatech.edu/bitstream/handle/1853/61891/Yeji-screenshot.jpg";
-    $history_img = "https://smartech.gatech.edu/bitstream/handle/1853/61891/Yeji-screenshot.jpg";
-    $all_data = array_merge($mapped_data, $history_data, $emulation_data, array("history_img" => $history_img, "emulation_img" => $emulation_img, "agent_name" => $agent_formatted, "entry_date" => $mapped_series_data["entry_date"]));
-    return view('template3_1', 
-                ['data' => $all_data, 
-                'history_data' => $history_data]);
-});
-
-Route::get('/ribbit', function () {
+Route::get('/pyburn', function () {
 
     $cli = new ArchiveSpaceApi();
-    $data = $cli->serveASpaceDataFromResource(1753);
-    $mapped_data = Data::extractResourceData($data);
+    $data = $cli->serveASpaceDataFromDO(89591);
+    $mapped_data = Data::extractDigitalObjectData($data);
+
+
     
     $cli->authenticate();
-    $history_obj = $cli->getDigitalObject(5084);
-    // TODO waiting on url in aspace
-    //$history_data = Data::extractOralHistoryData($history);
-    $emulation_obj = $cli->getDigitalObject(5080);
-    // TODO waiting on emulation landing page url in aspace
-    //$emulation_data = Data::extractEmulationData($emulation_obj);
-    //return view('template3', ['data' => $data, 'emulation' => $emulation_img, 'history' => $history_img]);
-    //var_dump($mapped_data);
-    //var_dump($emulation_obj);
-    //return view('template3_1', ['data' => $data,]);
+    $agent = $cli->getAgentById(ArchiveSpaceApi::_getIDFromUrl($data['linked_agents'][0]['ref']));
+    $agent_formatted = Data::formatName($agent["title"]);
+
+    $history_ao = $cli->getArchivalObject($tree['children'][1]['id']);
+    $history_obj = $cli->getDigitalObjectsFromArchivalObject($history_ao)[0];
+    $history_data = Data::extractOralHistoryData($history_obj);
+    $history_img = $history_obj['file_versions'][1]['file_uri'];
+
+    $emulation_ao = $cli->getArchivalObject($tree['children'][0]['id']);
+    $emulation_obj = $cli->getDigitalObjectsFromArchivalObject($emulation_ao)[0];
+    $emulation_data = Data::extractEmulationData($emulation_obj);
+    $emulation_img = $emulation_obj['file_versions'][1]['file_uri'];
+    $all_data = array_merge($mapped_data, array("emulation_img" => $emulation_img, "history_img" => $history_img, "agent_name" => $agent_formatted));
+    return view('template3_1', 
+                ['data' => $all_data, 
+                'history_data' => $history_data,
+                'emulation_data' => $emulation_data]);
 });
 
 Route::get('/knowbot', function () {
@@ -119,47 +124,61 @@ Route::get('/knowbot', function () {
     $mapped_data = Data::extractResourceData($data);
     
     $cli->authenticate();
-    $history_obj1 = $cli->getDigitalObject(5089);
-    $history_data1 = Data::extractOralHistoryData($history_obj1);
-    $history_obj2 = $cli->getDigitalObject(5090);
-    $history_data2 = Data::extractOralHistoryData($history_obj2);
+    $history1_obj = $cli->getDigitalObject(5089);
+    $history1_data = Data::extractOralHistoryData($history1_obj);
+    $history_img = $history1_obj['file_versions'][1]['file_uri'];
     
-    // TODO pull this link from aspace DO file versions[1]
-    // stored on alan porter's oral history object
-    $emulation_img = "https://smartech.gatech.edu/bitstream/handle/1853/61897/VantagePoint-screenshot.jpg";
-    $history_img = "https://smartech.gatech.edu/bitstream/handle/1853/61897/Alan-Porter-oral-history-screenshot.jpg";
-    $history_img2 = "https://smartech.gatech.edu/bitstream/handle/1853/61898/Nils-Newman-oral-history-screenshot.jpg";
-    $all_data = array_merge($mapped_data, array("emulation_img" => $emulation_img, "history_img" => $history_img, "history_img2" => $history_img2));
+    $history2_obj = $cli->getDigitalObject(5090);
+    $history2_data = Data::extractOralHistoryData($history2_obj);
+    $history2_img = $history2_obj['file_versions'][1]['file_uri'];
+
+    $emulation_img = $history1_obj['file_versions'][2]['file_uri'];
+
+    $all_data = array_merge($mapped_data, array("emulation_img" => $emulation_img, "history_img" => $history_img, "history2_img" => $history2_img));
     return view('template3_2', 
                 ['data' => $all_data, 
-                'history_data' => $history_data1, 
-                'history_data2' => $history_data2]);
+                'history_data' => $history1_data, 
+                'history2_data' => $history2_data]);
 });
 
 Route::get('/olympics', function () {
 
     $cli = new ArchiveSpaceApi();
-    $data = $cli->serveASpaceDataFromResource(1770);
-    $mapped_data = Data::extractResourceData2($data);
+    $resource_data = $cli->serveASpaceDataFromResource(1770, false);
+    $mapped_data = Data::extractResourceData2($resource_data);
 
     $gallery_data = $cli->serveDigitalObjectCollectionFromAO(89136);
     $mapped_gallery_data = Data::extractGalleryData($gallery_data);
 
-    $cli->authenticate();
-    $history_obj1 = $cli->getDigitalObject(5103);
-    $history_data1 = Data::extractOralHistoryData($history_obj1);
-    $history_obj2 = $cli->getDigitalObject(5103);
-    $history_data2 = Data::extractOralHistoryData($history_obj2);
+    // get history Digital Objects ids from resource tree, then fetch by id
+    $tree = $cli->serveASpaceDataFromResource(1770, true);
+    $doc_id = $tree['children'][2]['id'];
 
-    // TODO pull this link from aspace DO file versions[1]
-    $history_img = "https://smartech.gatech.edu/bitstream/handle/1853/62114/Scott-Robertson-oral-history-screenshot.jpeg?sequence=5&isAllowed=y";
-    $history_img2 = "https://smartech.gatech.edu/bitstream/handle/1853/62114/Scott-Robertson-oral-history-screenshot.jpeg?sequence=5&isAllowed=y";
+    $cli->authenticate();
+    $doc_ao = $cli->getArchivalObject($doc_id);
+    $doc_do = $cli->getDigitalObjectsFromArchivalObject($doc_ao)[0];
+    $documentation_data = Data::extractDocumentationData($doc_do);
+    $documentation_data['description'] = $doc_ao['notes'][0]['subnotes'][0]['content'];
+    $documentation_data['date'] = $doc_ao['dates'][0]['expression'];
+
+    $history1_obj = $cli->getArchivalObject($tree['children'][0]['children'][0]['id']);
+    $history1_data = Data::extractOralHistoryData($history1_obj);
+    $history1_do = $cli->getDigitalObjectsFromArchivalObject($history1_obj);
+    // note this variable needs to be 'history_img' not 'history1_img' to display both properly
+    $history_img = $history1_do[0]['file_versions'][1]['file_uri'];
+
     
-    $all_data = array_merge($mapped_data, $mapped_gallery_data, array("history_img" => $history_img, "history_img2" => $history_img2));
+    $history2_obj = $cli->getArchivalObject($tree['children'][0]['children'][1]['id']);
+    $history2_do = $cli->getDigitalObjectsFromArchivalObject($history2_obj);
+    $history2_data = Data::extractOralHistoryData($history2_do[0]);
+    $history2_img = $history2_do[0]['file_versions'][1]['file_uri'];
+    
+    $all_data = array_merge($mapped_data, $mapped_gallery_data, array("history_img" => $history_img, "history2_img" => $history2_img));
     return view('template3_gallery',
                 ['data' => $all_data, 
-                'history_data' => $history_data1, 
-                'history_data2' => $history_data2]);
+                'history_data' => $history1_data, 
+                'history2_data' => $history2_data,
+                'documentation_data' => $documentation_data]);
 });
 
 // Used for dev testing, shouldn't be any real api calls

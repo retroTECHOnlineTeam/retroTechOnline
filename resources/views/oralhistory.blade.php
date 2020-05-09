@@ -1,6 +1,6 @@
 <div>  
   <div class="l-content-container paragraph paragraph--type--headline-band paragraph--view-mode--default">
-    <section class="headline-band  h2 headline-band__underline">
+    <section class="headline-band  h3 headline-band__underline">
       <div class="headline-band__inner">
         <h3 class="headline-band__title h3">
           Oral History

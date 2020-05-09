@@ -10,10 +10,10 @@
     @include('header')
     @include('breadcrumbs')
 
-    <h2 class = "headline-band__title l-center">
+    <h1 class = "headline-band__title l-center">
         {{ $data['entry_title'] }}
-    </h2>
-    <h3 class="headline-band__title l-center">{{ $data['entry_date'] }}</h3>
+    </h1>
+    <h2 class="headline-band__title l-center">{{ $data['entry_date'] }}</h2>
 
     <div class="l-center l-content-container paragraph paragraph--type--text paragraph--view-mode--default">
         <div class="body-text"><p>{{ $data['entry_description'] }}</p></div>

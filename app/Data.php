@@ -9,6 +9,7 @@ class Data {
 
     const FINDING_AID_BASE_URL = "https://finding-aids.library.gatech.edu";
     const DEFAULT_DESC = "Visit the retroTECH lab to learn more.";
+    const DEFAULT_OH_LINK = "https://library.gatech.edu/retrotech";
 
     /**
     * Flip format of name from 'Last, First' to 'First Last'
@@ -69,6 +70,22 @@ class Data {
         return $mapped_data;
     }
 
+    /** 
+    * Get general entry data from a digital object
+    * 
+    * Live software link should be saved on the object in External Documents->Location
+    * @param array of json data from a resource
+    */
+    public static function extractDigitalObjectData(array $data) {
+        $mapped_data = array(
+                  "entry_name"        => $data['title'],
+                  "entry_title"       => $data['title'],
+                  "entry_date"        => $data['dates'][0]['expression'],
+                  "entry_description" => (empty($data['notes'][0]['subnotes'][0]['content']) ? Data::DEFAULT_DESC: $data['notes'][0]['subnotes'][0]['content']),
+                  "uri_link"          => Data::FINDING_AID_BASE_URL . $data['uri']);
+        return $mapped_data;
+    }
+
 
 
     /** 
@@ -89,9 +106,9 @@ class Data {
     * OHMS url should be saved on the object in External Documents->Location
     * @param array of data from a digial object
     */
-    public static function extractOralHistoryData(array $data) {
+    public static function extractOralHistoryData(array $data, bool $single = false) {
         $mapped_data = array(
-                  "history_url"     => $data['external_documents'][0]['location']);
+                  "history_url"     => (empty($data['external_documents'][0]['location'])) ? Data::DEFAULT_OH_LINK : $data['external_documents'][0]['location']);
         return $mapped_data;
     }
 
@@ -105,6 +122,14 @@ class Data {
         }
         return $mapped_data;
 
+    }
+
+    public static function extractDocumentationData(array $data) {
+        $mapped_data = array(
+                  "title"               => $data['title'],
+                  "media_url"         => $data['file_versions'][1]['file_uri'],
+                  "uri_link"          => Data::FINDING_AID_BASE_URL . $data['uri']);
+        return $mapped_data;
     }
 
     public static function extractTitle(array $data) {
